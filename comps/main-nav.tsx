@@ -1,8 +1,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { Icons } from "@/comps/icons"
-import { NavItem, siteConfig } from "@/lib"
-import { cn } from "@/lib/utils"
+import { NavItem, cn, siteConfig } from "@/lib"
 
 interface MainNavProps {
   items?: NavItem[]

@@ -1,10 +1,6 @@
 import Link from "next/link"
-import { Icons } from "@/comps/icons"
-import { MainNav } from "@/comps/main-nav"
-import { ThemeToggle } from "@/comps/theme-toggle"
-import { buttonVariants } from "@/comps/ui/button"
-
-import { siteConfig } from "@/lib/config/site"
+import { Icons, MainNav, ThemeToggle, buttonVariants } from "@/comps"
+import { siteConfig } from "@/lib"
 
 export function SiteHeader() {
   return (
