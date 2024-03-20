@@ -1,6 +1,8 @@
+"use client"
+
 import * as React from "react"
 import Link from "next/link"
-import { Icons } from "@/comps/icons"
+import { Icons } from "@/comps"
 import { NavItem, cn, siteConfig } from "@/lib"
 
 interface MainNavProps {

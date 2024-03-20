@@ -1,6 +1,10 @@
+"use client"
+
 import Link from "next/link"
-import { Icons, MainNav, ThemeToggle, buttonVariants } from "@/comps"
+import { Icons, ThemeToggle, buttonVariants } from "@/comps"
 import { siteConfig } from "@/lib"
+
+import { MainNav } from "./main-nav"
 
 export function SiteHeader() {
   return (
