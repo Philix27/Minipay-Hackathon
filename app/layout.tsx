@@ -2,6 +2,7 @@ import "@/styles/globals.css"
 import { Metadata } from "next"
 import { TailwindIndicator, ThemeProvider } from "@/comps"
 import { cn, fontSans, siteConfig } from "@/lib"
+
 import { SiteHeader } from "./home/_comps"
 
 export const metadata: Metadata = {
@@ -41,7 +42,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <SiteHeader />
               <div className="flex-1">{children}</div>
             </div>
-            <TailwindIndicator />
+            {/* <TailwindIndicator /> */}
           </ThemeProvider>
         </body>
       </html>

@@ -8,8 +8,8 @@ const cNames: Record<IVariants, string> = {
   h2: "text-2xl font-bold leading-tight",
   h3: "text-xl font-bold leading-normal tracking-tighter",
   h4: "text-lg font-medium leading-normal tracking-tighter",
-  h5: "text-mdl font-regular leading-relaxed tracking-tighter",
-  h6: "text-sm font-light leading-loose tracking-tighter ",
+  h5: "text-xs font-regular leading-relaxed tracking-tighter",
+  h6: "text-xs font-light leading-loose tracking-tighter ",
 }
 export function TextH(props: {
   children: ReactNode
