@@ -23,11 +23,3 @@ export function TextB(props: {
     </p>
   )
 }
-
-
-
-export default function textB() {
-  return (
-    <div className={"text-x"}>textB</div>
-  )
-}
