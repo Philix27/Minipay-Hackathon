@@ -42,12 +42,12 @@ func (r *Repository) FindAll() (list []announcement) {
 
 // FindById implements iRepository.
 func (r *Repository) FindById(dataId int) (data announcement, err error) {
-	var announcementItem database.Announcement
-	result := r.Db.Find(&announcementItem, dataId)
+	var model database.Budgets
+	result := r.Db.Find(&model, dataId)
 
 	res := announcement{
-		Title:    announcementItem.Title,
-		Subtitle: announcementItem.Subtitle,
+		Title:    model.Name,
+		Subtitle: model.Description,
 	}
 
 	if result != nil {
