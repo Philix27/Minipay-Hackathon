@@ -4,5 +4,6 @@ export class AppPages {
   static invoice = "/invoice"
   static paymentLink = "/payment-links"
   static transactions = "/transactions"
+  static settings = "/settings"
   static wallet = "/wallet"
 }

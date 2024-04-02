@@ -1,4 +1,6 @@
-import { Navbar } from "./_comps"
+import { TextH } from "@/comps"
+
+import { Navbar, Sidebar } from "./_comps"
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -6,9 +8,12 @@ interface RootLayoutProps {
 
 export default function ProtectedLayout({ children }: RootLayoutProps) {
   return (
-    <div className="relative flex min-h-screen flex-col">
-      <div className="flex-1">{children}</div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
+      <div className="flex h-full">
+        <Sidebar />
+        <div>{children}</div>
+      </div>
     </div>
   )
 }
