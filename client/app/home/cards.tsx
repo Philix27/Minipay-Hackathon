@@ -1,5 +1,5 @@
+import { TextH, TextB } from "@/comps"
 import React from "react"
-import { TextB, TextH } from "@/comps"
 
 const cardItems = [
   {

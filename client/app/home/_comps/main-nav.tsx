@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { Icons } from "@/comps"
-import { NavItem, cn, siteConfig } from "@/lib"
+import { NavItem, siteConfig, cn } from "@/lib"
 
 interface MainNavProps {
   items?: NavItem[]

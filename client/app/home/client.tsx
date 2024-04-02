@@ -2,14 +2,15 @@
 
 import React from "react"
 import Link from "next/link"
-import { TextB, TextH, buttonVariants } from "@/comps"
-import { siteConfig } from "@/lib"
+
+import { TextB, TextH, buttonVariants } from "@/app/comps"
+import { siteConfig } from "@/app/lib"
 
 import CardsSection from "./cards"
+import FooterSection from "./footer"
 import HeroSection from "./hero"
 import HeroCenter from "./heroC"
 import JumbutronSection from "./jumbutron"
-import FooterSection from "./footer"
 
 export default function HomeClient() {
   return (

@@ -1,4 +1,5 @@
 import React from "react"
+
 import { TextB, TextH } from "@/comps"
 
 export default function HeroCenter(props: { title: string; subtitle: string }) {
