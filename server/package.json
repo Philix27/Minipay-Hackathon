@@ -1,0 +1,15 @@
+{
+  "name": "kolab_backend",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "gqlgen": "go run github.com/99designs/gqlgen generate",
+    "run": "go run server.go",
+    "docs_fmt": "./swag fmt",
+    "docs_gen": "./swag init -g main.go",
+    "dev": "go run main.go"
+  }
+}

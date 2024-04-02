@@ -1,0 +1,91 @@
+package main
+
+// func main() {
+// 	if len(os.Args) != 2 {
+// 		fmt.Println("Usage: go run main.go <folder>")
+// 		return
+// 	}
+
+// 	folder := os.Args[1]
+//     allNotes := ""
+// 	err := filepath.Walk(folder, func(path string, info os.FileInfo, err error) error {
+// 		if err != nil {
+// 			return err
+// 		}
+// 		if !info.IsDir() && filepath.Ext(path) == ".go" {
+// 			if setup, err := printStructsInFile(path, allNotes); err != nil {
+// 				// newVar := wr + "} \n"
+// 				err2 := os.WriteFile("schema.ts", []byte(setup), 12)
+// 				if err2 != nil {
+// 					log.Print(err2)
+// 				}
+// 				fmt.Println("Error:", err)
+// 			}
+// 		}
+// 		return nil
+// 	})
+//     fmt.Printf("Result", allNotes + "} \n")
+// 	if err != nil {
+// 		fmt.Println("Error:", err)
+// 	}
+// }
+
+// func printStructsInFile(filename string, allNotes string) (string, error) {
+// 	src, err := ioutil.ReadFile(filename)
+// 	if err != nil {
+// 		return "", err
+// 	}
+
+// 	fset := token.NewFileSet()
+// 	file, err := parser.ParseFile(fset, filename, src, parser.AllErrors)
+
+// 	if err != nil {
+// 		return "", err
+// 	}
+
+// 	// fmt.Printf("Structs in %s:\n", filename)
+// 	setup := "interface "
+// 	for _, decl := range file.Decls {
+// 		if genDecl, ok := decl.(*ast.GenDecl); ok && genDecl.Tok == token.TYPE {
+// 			// println("Gen  decl:",genDecl)
+
+// 			for _, spec := range genDecl.Specs {
+
+// 				if typeSpec, ok := spec.(*ast.TypeSpec); ok {
+
+// 					if structType, ok := typeSpec.Type.(*ast.StructType); ok {
+// 						setup = setup + fmt.Sprintf("%v {", typeSpec.Name)
+
+// 						for _, field := range structType.Fields.List {
+
+// 							c := fmt.Sprintf("\t%v : %v;\n", field.Names[0], field.Type)
+// 							setup = setup + c
+// 						}
+// 						allNotes = setup + "} \n"
+// 					}
+
+// 				}
+
+// 			}
+// 		}
+
+// 	}
+
+// 	return setup, nil
+// }
+
+
+func main()  {
+    allNotes := "Hi,"
+    println("Before call:", allNotes)
+    addToArr(&allNotes)
+    println("After call:", addToArr(&allNotes))
+}
+
+
+
+func addToArr(notes *string) string {
+
+
+    return  *notes + " Hey bro"
+}
