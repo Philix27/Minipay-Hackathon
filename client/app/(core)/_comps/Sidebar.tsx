@@ -12,6 +12,7 @@ export function Sidebar() {
     <div
       className={`
         w-[272px] border-l-[2px] bg-primary py-4
+        border-r-2 border-secondary
       `}
       style={{ height: "calc(100vh - 70px)" }}
     >
@@ -29,9 +30,11 @@ function SidebarGroup(params: { section: ISection }) {
   return (
     <div>
       <div
-        className={
-          "px-4 py-2 flex items-center justify-between mb-2 border-b-2 border-secondary first:pt-0"
-        }
+        className={`
+            px-4 py-2 flex items-center
+            justify-between mb-2
+            border-b-2 border-secondary first:pt-0
+          `}
         onClick={() => setIsOpen(!isOpen)}
       >
         <TextH className={"text-muted-foreground"}>

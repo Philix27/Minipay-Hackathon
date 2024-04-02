@@ -69,11 +69,11 @@ export const data: ISection[] = [
     group: [
       {
         name: "Crypto",
-        link: AppPages.paymentLink,
+        link: AppPages.transactionsCrypto,
       },
       {
         name: "Fiat",
-        link: AppPages.paymentLink,
+        link: AppPages.transactionsFiat,
       },
     ],
   },

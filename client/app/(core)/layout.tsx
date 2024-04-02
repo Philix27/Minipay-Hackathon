@@ -12,7 +12,7 @@ export default function ProtectedLayout({ children }: RootLayoutProps) {
       <Navbar />
       <div className="flex h-full">
         <Sidebar />
-        <div>{children}</div>
+       {children}
       </div>
     </div>
   )
