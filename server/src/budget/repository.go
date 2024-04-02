@@ -19,7 +19,7 @@ func NewRepository(db *gorm.DB) iRepository {
 
 // Create implements iRepository.
 func (r *Repository) Create(data createAnnouncementDto) {
-	model := database.Announcement{
+	model := database.Budgets{
 		Title: data.Title,
 	}
 	result := r.Db.Create(&model)
