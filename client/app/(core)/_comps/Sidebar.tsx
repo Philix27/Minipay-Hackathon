@@ -1,52 +1,57 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
-import { TextH } from "@/comps"
-import { AppPages } from "@/lib"
+import { TextB, TextH } from "@/comps"
+import { ArrowDown, ArrowUp } from "lucide-react"
+
+import { ISection, data } from "./SidebarData"
 
 export function Sidebar() {
   return (
     <div
       className={`
-        w-[272px] border-l-[2px] bg-[#19303d] py-4
+        w-[272px] border-l-[2px] bg-primary py-4
       `}
       style={{ height: "calc(100vh - 70px)" }}
     >
-      {data.map((val, i) => (
-        <Link href={val.link} className="hover:[&>*]:bg-secondary">
-          <div className={"px-4 py-3 "}>
-            <TextH v="h4">{val.name}</TextH>
-          </div>
-        </Link>
+      {data.map((item, i) => (
+        <div>
+          <SidebarGroup section={item} />
+        </div>
       ))}
     </div>
   )
 }
 
-const data: {
-  name: string
-  link: string
-}[] = [
-  {
-    name: "Dashboard",
-    link: AppPages.dashboard,
-  },
-  {
-    name: "Invoice",
-    link: AppPages.invoice,
-  },
-  {
-    name: "Payment Links",
-    link: AppPages.paymentLink,
-  },
-  {
-    name: "Transactions",
-    link: AppPages.transactions,
-  },
-  {
-    name: "Budgets",
-    link: AppPages.budgets,
-  },
-  {
-    name: "Settings",
-    link: AppPages.settings,
-  },
-]
+function SidebarGroup(params: { section: ISection }) {
+  const [isOpen, setIsOpen] = useState(false)
+  return (
+    <div>
+      <div
+        className={
+          "px-4 py-2 flex items-center justify-between mb-2 border-b-2 border-secondary first:pt-0"
+        }
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <TextH className={"text-muted-foreground"}>
+          {params.section.title}
+        </TextH>
+        {isOpen ? <ArrowDown size={15} /> : <ArrowUp size={15} />}
+      </div>
+      {isOpen &&
+        params.section.group.map((val, i) => (
+          <Link
+            href={val.link}
+            className="hover:[&>*]:bg-secondary [&>p]:text-white"
+          >
+            <div className={"px-4 py-3 "}>
+              <TextB v="p5" className="text-primary-foreground ">
+                {val.name}
+              </TextB>
+            </div>
+          </Link>
+        ))}
+    </div>
+  )
+}
