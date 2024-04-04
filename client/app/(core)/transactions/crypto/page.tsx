@@ -29,7 +29,7 @@ export default function Page() {
 
           <T.TableBody>
             {invoices.map((val, i) => (
-              <T.TableRow className={`hover:bg-secondary`}>
+              <T.TableRow key={i} className={`hover:bg-secondary`}>
                 <T.TableCell className="font-medium">{val.invoice}</T.TableCell>
                 <T.TableCell className="text-center">
                   {val.paymentStatus}
