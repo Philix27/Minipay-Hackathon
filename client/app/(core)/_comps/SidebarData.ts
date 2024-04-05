@@ -22,15 +22,11 @@ export const data: ISection[] = [
     group: [
       {
         name: "All",
-        link: AppPages.invoice,
-      },
-      {
-        name: "Pending",
-        link: AppPages.invoice,
+        link: AppPages.invoice.new,
       },
       {
         name: "Create New",
-        link: AppPages.invoice,
+        link: AppPages.invoice.new,
       },
     ],
   },

@@ -1,7 +1,10 @@
 export class AppPages {
   static dashboard = "/dashboard"
   static budgets = "/budgets"
-  static invoice = "/invoice"
+  static invoice = {
+    new: "/invoice/new",
+    all: "/invoice/all",
+  }
   static paymentLink = "/payment-links"
   static transactions = "/transactions"
   static transactionsCrypto = "/transactions/crypto"
