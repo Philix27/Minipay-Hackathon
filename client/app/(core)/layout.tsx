@@ -19,7 +19,7 @@ export default function ProtectedLayout({ children }: RootLayoutProps) {
         isOpen={openNav}
         onCloseClick={() => setOpenNav(false)}
       />
-      <div className="flex h-full">
+      <div className="flex h-full mt-[70px]">
         {openNav && <SidebarMobile />}
         <Sidebar />
         {/* <SidebarMobile className={` ${openNav && "hidden md:block"}`} /> */}

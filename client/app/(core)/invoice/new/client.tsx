@@ -17,7 +17,7 @@ export default function NewInvoiceClient() {
             border-r-2 py-2 px-4
             ${isFormTab && "bg-primary"}`}
         >
-          <TextH>Form</TextH>
+          <TextH v="h5">Form</TextH>
         </div>
         <div
           onClick={() => setActiveTab(false)}
@@ -25,7 +25,7 @@ export default function NewInvoiceClient() {
             border-r-2 py-2 px-4
             ${isFormTab || "bg-primary"}`}
         >
-          <TextH>Preview</TextH>
+          <TextH v="h5">Preview</TextH>
         </div>
       </div>
       <div className={"w-full"}>

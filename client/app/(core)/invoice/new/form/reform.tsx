@@ -1,4 +1,5 @@
 import React from "react"
+import { TextB } from "@/comps"
 import {
   Control,
   ControllerRenderProps,
@@ -7,7 +8,6 @@ import {
 } from "react-hook-form"
 
 import {
-  Form,
   FormControl,
   FormDescription,
   FormField,
@@ -30,13 +30,17 @@ export default function AppInput<T extends FieldValues>(props: {
   type?: IFormTypes
 }) {
   return (
-    <div className={"flex-[1]"}>
+    <div className={"flex-[1] w-full mb-2"}>
       <FormField
         control={props.control}
         name={props.name}
         render={({ field }) => (
           <FormItem>
-            {props.desc && <FormLabel>{props.desc}</FormLabel>}
+            {props.label && (
+              <FormLabel>
+                <TextB v="p5">{props.label}</TextB>
+              </FormLabel>
+            )}
             <FormControl>
               <InputSorter
                 place={props.place}
