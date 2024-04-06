@@ -5,23 +5,24 @@ import (
 )
 
 type iRepository interface {
-	Create(data createAnnouncementDto)
-	Update(data updateAnnouncementDto)
+	Create(data createBudgetDto)
+	Update(data updateBudgetDto)
 	Delete(dataId int)
-	FindById(dataId int) (data announcement, err error)
-	FindAll() (list []announcement)
+	FindById(dataId int) (data budget, err error)
+	FindAll() (list []budget)
 }
 
 type iService interface {
-	Create(data createAnnouncementDto)
-	Update(data updateAnnouncementDto)
+	Create(data createBudgetDto)
+	Update(data updateBudgetDto)
 	Delete(dataId int)
-	FindById(dataId int) (data announcementResponseDto, err error)
-	FindAll() (list []announcementResponseDto)
+	FindById(dataId int) (data budgetResponseDto, err error)
+	FindAll() (list []budgetResponseDto)
 }
 
 type iRoutes interface {
-	create(router fiber.Router)
+
+	create(c *fiber.Ctx) error
 	update(c *fiber.Ctx) error
 	getAll(c *fiber.Ctx) error
 	getOne(c *fiber.Ctx) error

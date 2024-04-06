@@ -11,6 +11,10 @@ func RunMigrations(db *gorm.DB) {
 		User{},
 		Budgets{},
 		Invoice{},
+		InvoiceItem{},
+		Transactions{},
+		Wallets{},
+		// PaymentLink{},
 	)
 
 	if err != nil {

@@ -12,6 +12,10 @@ type User struct {
 	RefreshToken string
 	TeamID       uint
 }
+type Wallets struct {
+	gorm.Model
+	WalletAddress string
+}
 
 type Budgets struct {
 	gorm.Model
@@ -21,15 +25,21 @@ type Budgets struct {
 
 type Invoice struct {
 	gorm.Model
-	Name        string
-	Description string
-	Items       []InvoiceItems
+	Name          string
+	Description   string
+	BusinessName  string
+	ClientName    string
+	ClientAddress string
+	Amount        uint
+	Items         []InvoiceItem
 }
 
-type InvoiceItems struct {
-	Name     string
-	Quantity uint
-	Amount   uint
+type InvoiceItem struct {
+	gorm.Model
+	Name      string
+	Quantity  uint
+	Amount    uint
+	InvoiceID uint
 }
 
 type Transactions struct {

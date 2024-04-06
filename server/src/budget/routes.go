@@ -1,60 +1,24 @@
 package budget
 
 import (
+	"github.com/go-playground/validator"
 	"github.com/gofiber/fiber/v2"
+	"gorm.io/gorm"
 )
 
-var list = []announcement{}
+func Setup(router fiber.Router, db *gorm.DB) {
 
-type Routes struct {
-	service iService
-}
+	repo := NewRepository(db)
 
-func NewRoutes(svc iService) iRoutes {
-	return &Routes{
-		service: svc,
-	}
-}
+	svc := NewService(repo, validator.New())
 
-func (r *Routes) create(route fiber.Router) {
-	route.Post("/", func(c *fiber.Ctx) error {
-		body := &announcement{}
+	handler := NewControllers(svc)
 
-		if err := c.BodyParser(body); err != nil {
-			return err
-		}
-
-		body.Id = len(list) + 1
-
-		list = append(list, *body)
-
-		return c.JSON(list)
-	}).Name("AnnouncementCreate")
-
-}
-
-func (r *Routes) update(c *fiber.Ctx) error {
-	id, err := c.ParamsInt("id")
-
-	if err != nil {
-		c.Status(401).SendString("Invalid id")
-	}
-
-	for i, j := range list {
-		if j.Id == id {
-			list[i].Title = ""
-			break
-		}
-	}
-	return c.JSON(list)
-}
-
-func (r *Routes) deleteOne(c *fiber.Ctx) error {
-	return c.SendString("Delete one announcement")
-}
-func (r *Routes) getAll(c *fiber.Ctx) error {
-	return c.JSON(list)
-}
-func (r *Routes) getOne(c *fiber.Ctx) error {
-	return c.SendString("Get one announcement")
+	router.Route("/budgets", func(router fiber.Router) {
+		router.Post("/", handler.create).Name("createBudget")
+		router.Get("/", handler.getAll).Name("getBudgets")
+		router.Get("/:id", handler.getOne).Name("getOneBudget")
+		router.Get("/:id", handler.deleteOne).Name("deleteBudget")
+		router.Get("/", handler.update).Name("updateBudget")
+	})
 }

@@ -19,7 +19,7 @@ func NewService(repository iRepository, validate *validator.Validate) iService {
 }
 
 // Create implements iService.
-func (s *Service) Create(data createAnnouncementDto) {
+func (s *Service) Create(data createBudgetDto) {
 	err := s.validate.Struct(data)
 	helper.ErrorPanic(err, "Create announcement service")
 
@@ -27,39 +27,39 @@ func (s *Service) Create(data createAnnouncementDto) {
 }
 
 // FindAll implements iService.
-func (s *Service) FindAll() (list []announcementResponseDto) {
+func (s *Service) FindAll() (list []budgetResponseDto) {
 	result := s.repository.FindAll()
 
-	var announceList []announcementResponseDto
+	var budgetList []budgetResponseDto
 
 	for _, val := range result {
-		an := announcementResponseDto{
+		an := budgetResponseDto{
 			Id:    int(val.Id),
 			Title: val.Title,
 		}
-		announceList = append(announceList, an)
+		budgetList = append(budgetList, an)
 	}
 
-	return announceList
+	return budgetList
 }
 
 // FindById implements iService.
-func (s *Service) FindById(dataId int) (data announcementResponseDto, err error) {
-	announceData, err := s.repository.FindById(dataId)
+func (s *Service) FindById(dataId int) (data budgetResponseDto, err error) {
+	budgetData, err := s.repository.FindById(dataId)
 
-	helper.ErrorPanic(err, "FindById announcement service")
+	helper.ErrorPanic(err, "FindById budget service")
 
-	response := announcementResponseDto{
-		Id:       int(announceData.Id),
-		Title:    announceData.Title,
-		Subtitle: announceData.Subtitle,
+	response := budgetResponseDto{
+		Id:       int(budgetData.Id),
+		Title:    budgetData.Title,
+		Subtitle: budgetData.Subtitle,
 	}
 
 	return response, err
 }
 
 // Update implements iService.
-func (s *Service) Update(data updateAnnouncementDto) {
+func (s *Service) Update(data updateBudgetDto) {
 	s.repository.Update(data)
 }
 

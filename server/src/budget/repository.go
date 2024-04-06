@@ -18,9 +18,9 @@ func NewRepository(db *gorm.DB) iRepository {
 }
 
 // Create implements iRepository.
-func (r *Repository) Create(data createAnnouncementDto) {
+func (r *Repository) Create(data createBudgetDto) {
 	model := database.Budgets{
-		Title: data.Title,
+		Name: data.Title,
 	}
 	result := r.Db.Create(&model)
 	helper.ErrorPanic(result.Error, "Create announcement")
@@ -28,24 +28,24 @@ func (r *Repository) Create(data createAnnouncementDto) {
 
 // Delete implements iRepository.
 func (r *Repository) Delete(dataId int) {
-	result := r.Db.Where("id = ?", dataId).Delete(new(announcement))
+	result := r.Db.Where("id = ?", dataId).Delete(new(budget))
 	helper.ErrorPanic(result.Error, "Delete announcement")
 }
 
 // FindAll implements iRepository.
-func (r *Repository) FindAll() (list []announcement) {
-	var announceList []announcement
+func (r *Repository) FindAll() (list []budget) {
+	var announceList []budget
 	result := r.Db.Find(&announceList)
-	helper.ErrorPanic(result.Error, "Find all announcement")
+	helper.ErrorPanic(result.Error, "Find all budget")
 	return announceList
 }
 
 // FindById implements iRepository.
-func (r *Repository) FindById(dataId int) (data announcement, err error) {
+func (r *Repository) FindById(dataId int) (data budget, err error) {
 	var model database.Budgets
 	result := r.Db.Find(&model, dataId)
 
-	res := announcement{
+	res := budget{
 		Title:    model.Name,
 		Subtitle: model.Description,
 	}
@@ -59,8 +59,8 @@ func (r *Repository) FindById(dataId int) (data announcement, err error) {
 }
 
 // Update implements iRepository.
-func (r *Repository) Update(data updateAnnouncementDto) {
-	var updateAn = updateAnnouncementDto{
+func (r *Repository) Update(data updateBudgetDto) {
+	var updateAn = updateBudgetDto{
 		Title: data.Subtitle,
 		Id:    int(data.Id),
 	}
