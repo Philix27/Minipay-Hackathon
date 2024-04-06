@@ -64,11 +64,11 @@ func (r *Routes) update(c *fiber.Ctx) {
 }
 
 func (r *Routes) deleteOne(c *fiber.Ctx) error {
-	return c.SendString("Delete one announcement")
+	return c.SendString("Delete one budget")
 }
 func (r *Routes) getAll(c *fiber.Ctx) error {
 	return c.JSON(list)
 }
 func (r *Routes) getOne(c *fiber.Ctx) error {
-	return c.SendString("Get one announcement")
+	return c.SendString("Get one budget")
 }

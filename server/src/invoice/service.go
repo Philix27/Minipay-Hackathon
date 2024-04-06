@@ -1,4 +1,4 @@
-package budget
+package invoice
 
 import (
 	"pay3/libs/helper"
@@ -23,7 +23,7 @@ func NewService(repository iRepository, validate *validator.Validate) iService {
 // Create implements iService.
 func (s *Service) Create(data createBudgetDto) {
 	err := s.validate.Struct(data)
-	helper.ErrorPanic(err, "Create budget service")
+	helper.ErrorPanic(err, "Create invoice service")
 	
 	s.repository.Create(data)
 }

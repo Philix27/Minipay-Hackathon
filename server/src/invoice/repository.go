@@ -1,4 +1,4 @@
-package budget
+package invoice
 
 import (
 	"errors"
@@ -23,13 +23,13 @@ func (r *Repository) Create(data createBudgetDto) {
 		Name: data.Title,
 	}
 	result := r.Db.Create(&model)
-	helper.ErrorPanic(result.Error, "Create ")
+	helper.ErrorPanic(result.Error, "Create budget")
 }
 
 // Delete implements iRepository.
 func (r *Repository) Delete(dataId int) {
 	result := r.Db.Where("id = ?", dataId).Delete(new(budget))
-	helper.ErrorPanic(result.Error, "Delete ")
+	helper.ErrorPanic(result.Error, "Delete budget")
 }
 
 // FindAll implements iRepository.
@@ -66,5 +66,5 @@ func (r *Repository) Update(data updateBudgetDto) {
 	}
 
 	result := r.Db.Model(&data).Updates(updateAn)
-	helper.ErrorPanic(result.Error, "Update ")
+	helper.ErrorPanic(result.Error, "Update invoice")
 }
