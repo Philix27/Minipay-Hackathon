@@ -1,6 +1,12 @@
 pragma solidity >=0.5.0 <0.8.0;
 contract Transfer {
 
+ function registerNewUser(type name) view public returns (type name) {
+    
+ }   
+ function getAllUsers(type name) view public returns (type name) {
+    
+ }   
  function getRecords(type name) view public returns (type name) {
     
  }   

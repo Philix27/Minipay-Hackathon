@@ -1,11 +1,7 @@
-"use client";
+"use client"
 
-import React, { ReactNode } from "react";
-import { cn } from "@/lib";
-
-
-
-
+import React, { ReactNode } from "react"
+import { cn } from "@/lib"
 
 type IVariants = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
 
@@ -14,7 +10,7 @@ const cNames: Record<IVariants, string> = {
   h2: "text-2xl font-bold leading-tight",
   h3: "text-xl font-bold leading-normal tracking-tighter",
   h4: "text-lg font-bold leading-normal tracking-tighter",
-  h5: "text-sm font-bold leading-normal tracking-tighter",
+  h5: "text-sm font-bold leading-relaxed tracking-tighter",
   h6: "text-xs font-medium leading-loose tracking-tighter ",
 }
 export function TextH(props: {
@@ -23,7 +19,7 @@ export function TextH(props: {
   className?: string
 }) {
   return (
-    <h1 className={cn(cNames[props.v || "h4"], props.className).concat("text-x")}>
+    <h1 className={cn(cNames[props.v || "h4"], props.className)}>
       {props.children}
     </h1>
   )
