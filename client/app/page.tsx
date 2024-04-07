@@ -1,14 +1,15 @@
 import { Metadata } from "next"
-import { siteConfig } from "@/lib"
+
 
 import HomeClient from "./home/client"
+import { siteConfig } from "./home/_comps"
 
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: "Home page",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },

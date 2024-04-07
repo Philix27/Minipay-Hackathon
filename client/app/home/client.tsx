@@ -3,7 +3,7 @@
 import React from "react"
 import Link from "next/link"
 import { TextB, TextH, buttonVariants } from "@/comps"
-import { siteConfig } from "@/lib"
+import { AppImg } from "@/lib"
 
 import { SiteHeader } from "./_comps"
 import CardsSection from "./cards"
@@ -23,27 +23,27 @@ export default function HomeClient() {
           into your apps.`}
         />
         <HeroSection
-          img={""}
+          img={AppImg.chain}
           title={"P2P Solution"}
           subtitle={`Accessible and customizable components that you can copy and paste
           into your apps. Free. Open Source. And Next.js 13 Ready.`}
         />
         <JumbutronSection
           title={
-            " Beautifully designed components built with Radix UI and Tailwind CSS."
+            "Beautifully designed components built with Radix UI and Tailwind CSS."
           }
           subtitle=""
         />
         <HeroSection
           imgFirst
-          img={""}
+          img={AppImg.chain}
           title={"P2P Solution"}
           subtitle={`Accessible and customizable components that you can copy and paste
           into your apps. Free. Open Source. And Next.js 13 Ready.`}
         />
         <CardsSection />
         <HeroSection
-          img={""}
+          img={AppImg.secure}
           title={"P2P Solution"}
           subtitle={`Accessible and customizable components that you can copy and paste
           into your apps. Free. Open Source. And Next.js 13 Ready.`}

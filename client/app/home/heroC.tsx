@@ -20,7 +20,7 @@ export default function HeroCenter(props: { title: string; subtitle: string }) {
          text-center
       `}
       >
-        <TextH v="h1" className={"text-[50px]"}>
+        <TextH v="h1" className={"text-[24px] md:text-[50px]"}>
           {props.title}
         </TextH>
         <div className="mb-10" />

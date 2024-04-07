@@ -3,7 +3,11 @@
 import * as React from "react"
 import Link from "next/link"
 import { Icons } from "@/comps"
-import { NavItem, siteConfig, cn } from "@/lib"
+import { NavItem, cn } from "@/lib"
+import { ConnectButton } from "thirdweb/react"
+
+import { siteConfig } from "./site"
+import { ThirdClient } from "@/lib/thirdweb/thirdweb"
 
 interface MainNavProps {
   items?: NavItem[]
@@ -18,7 +22,7 @@ export function MainNav({ items }: MainNavProps) {
       </Link>
       {items?.length ? (
         <nav className="flex gap-6">
-          {items?.map(
+          {/* {items?.map(
             (item, index) =>
               item.href && (
                 <Link
@@ -32,7 +36,22 @@ export function MainNav({ items }: MainNavProps) {
                   {item.title}
                 </Link>
               )
-          )}
+          )} */}
+          <Link
+            href={"/dashboard"}
+            className={cn(
+              "flex items-center text-sm font-medium text-muted-foreground"
+            )}
+          >
+            Dashboard
+          </Link>
+          <ConnectButton
+            client={ThirdClient}
+            appMetadata={{
+              name: "Example App",
+              url: "https://example.com",
+            }}
+          />
         </nav>
       ) : null}
     </div>
