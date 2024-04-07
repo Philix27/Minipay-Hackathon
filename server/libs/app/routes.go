@@ -15,7 +15,7 @@ func (state AppState) SetupRoutes(app *fiber.App) {
 
 	budget.Setup(v1, state.DB)
 	invoice.Setup(v1, state.DB)
-	
+
 	app.Get("/swagger/*", swagger.HandlerDefault) // default
 
 }

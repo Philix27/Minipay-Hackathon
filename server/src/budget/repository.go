@@ -4,7 +4,6 @@ import (
 	"errors"
 
 	"pay3/libs/database"
-	"pay3/libs/helper"
 
 	"gorm.io/gorm"
 )
@@ -18,30 +17,31 @@ func NewRepository(db *gorm.DB) iRepository {
 }
 
 // Create implements iRepository.
-func (r *Repository) Create(data createBudgetDto) {
+func (r *Repository) Create(data createBudgetDto) error {
 	model := database.Budgets{
 		Name: data.Title,
 	}
 	result := r.Db.Create(&model)
-	helper.ErrorPanic(result.Error, "Create ")
+	return result.Error
+	// helper.ErrorPanic(result.Error, "Create ")
 }
 
 // Delete implements iRepository.
-func (r *Repository) Delete(dataId int) {
+func (r *Repository) Delete(dataId int) error {
 	result := r.Db.Where("id = ?", dataId).Delete(new(budget))
-	helper.ErrorPanic(result.Error, "Delete ")
+	return result.Error
 }
 
 // FindAll implements iRepository.
-func (r *Repository) FindAll() (list []budget) {
+func (r *Repository) FindAll() ([]budget, error) {
 	var announceList []budget
 	result := r.Db.Find(&announceList)
-	helper.ErrorPanic(result.Error, "Find all budget")
-	return announceList
+	// helper.ErrorPanic(result.Error, "Find all budget")
+	return announceList,  result.Error
 }
 
 // FindById implements iRepository.
-func (r *Repository) FindById(dataId int) (data budget, err error) {
+func (r *Repository) FindById(dataId int) (budget, error) {
 	var model database.Budgets
 	result := r.Db.Find(&model, dataId)
 
@@ -59,12 +59,13 @@ func (r *Repository) FindById(dataId int) (data budget, err error) {
 }
 
 // Update implements iRepository.
-func (r *Repository) Update(data updateBudgetDto) {
+func (r *Repository) Update(data updateBudgetDto) error {
 	var updateAn = updateBudgetDto{
 		Title: data.Subtitle,
 		Id:    int(data.Id),
 	}
 
 	result := r.Db.Model(&data).Updates(updateAn)
-	helper.ErrorPanic(result.Error, "Update ")
+	// helper.ErrorPanic(result.Error, "Update ")
+		return result.Error
 }

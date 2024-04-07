@@ -14,7 +14,7 @@ type createBudgetDto struct {
 type updateBudgetDto struct {
 	Id       int    `validate:"required"`
 	Title    string `validate:"required"`
-	Subtitle string	
+	Subtitle string
 }
 type budgetResponseDto struct {
 	Id       int    `validate:"required"`

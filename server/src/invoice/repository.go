@@ -13,17 +13,21 @@ type Repository struct {
 	Db *gorm.DB
 }
 
-func NewRepository(db *gorm.DB) iRepository {
-	return &Repository{Db: db}
+func NewRepository(db *gorm.DB) Repository {
+	return Repository{Db: db}
 }
 
 // Create implements iRepository.
-func (r *Repository) Create(data createBudgetDto) {
-	model := database.Budgets{
-		Name: data.Title,
-	}
-	result := r.Db.Create(&model)
-	helper.ErrorPanic(result.Error, "Create budget")
+func (r *Repository) Create(Name string,Description string,
+	BusinessName string,
+	ClientName string,
+	ClientAddress string,
+	Amount uint) {
+	// model := database.Invoice{
+	// 	Name: data.Title,
+	// }
+	// result := r.Db.Create(&model)
+	// helper.ErrorPanic(result.Error, "Create budget")
 }
 
 // Delete implements iRepository.

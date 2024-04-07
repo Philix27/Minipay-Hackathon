@@ -7,12 +7,11 @@ import (
 )
 
 type Service struct {
-	repository iRepository
+	repository Repository
 	validate   *validator.Validate
-
 }
 
-func NewService(repository iRepository, validate *validator.Validate) iService {
+func NewService(repository Repository, validate *validator.Validate) iService {
 	return &Service{
 		repository: repository,
 		validate:   validate,
@@ -24,7 +23,7 @@ func NewService(repository iRepository, validate *validator.Validate) iService {
 func (s *Service) Create(data createBudgetDto) {
 	err := s.validate.Struct(data)
 	helper.ErrorPanic(err, "Create invoice service")
-	
+
 	s.repository.Create(data)
 }
 

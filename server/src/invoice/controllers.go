@@ -16,7 +16,6 @@ func NewControllers(svc iService) iRoutes {
 	}
 }
 
-
 // create implements iRoutes.
 func (*Controllers) create(c *fiber.Ctx) error {
 

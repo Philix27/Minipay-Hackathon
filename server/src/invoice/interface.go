@@ -21,7 +21,6 @@ type iService interface {
 }
 
 type iRoutes interface {
-
 	create(c *fiber.Ctx) error
 	update(c *fiber.Ctx) error
 	getAll(c *fiber.Ctx) error
