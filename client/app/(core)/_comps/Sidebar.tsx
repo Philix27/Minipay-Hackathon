@@ -40,7 +40,7 @@ export function SidebarGroup(params: { section: ISection }) {
           `}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <TextH className={"text-muted-foreground"}>
+        <TextH className={"text-muted-foreground"} v="h5">
           {params.section.title}
         </TextH>
         {isOpen ? <ArrowDown size={15} /> : <ArrowUp size={15} />}

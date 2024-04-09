@@ -23,7 +23,7 @@ export function SidebarMobile(props: { className?: string }) {
       <motion.div
         initial={{ x: -40, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ ease: "backInOut", duration: 0.75 }}
+        transition={{ ease: "easeIn", duration: 0.5 }}
         className={cn(
           `w-[60%] h-full py-4
         bg-primary

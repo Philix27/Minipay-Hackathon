@@ -4,7 +4,6 @@ import (
 	"errors"
 
 	"pay3/libs/database"
-	"pay3/libs/helper"
 
 	"gorm.io/gorm"
 )
@@ -18,40 +17,52 @@ func NewRepository(db *gorm.DB) Repository {
 }
 
 // Create implements iRepository.
-func (r *Repository) Create(Name string,Description string,
-	BusinessName string,
-	ClientName string,
-	ClientAddress string,
-	Amount uint) {
-	// model := database.Invoice{
-	// 	Name: data.Title,
-	// }
-	// result := r.Db.Create(&model)
-	// helper.ErrorPanic(result.Error, "Create budget")
+func (r *Repository) Create(data dto_Create) (uint, error) {
+
+	model := database.Invoice{
+		Name:          data.Name,
+		Description:   data.Description,
+		ClientName:    data.ClientName,
+		ClientAddress: data.ClientAddress,
+		BusinessName:  data.BusinessName,
+		Amount:        data.Amount,
+	}
+
+	result := r.Db.Create(&model)
+
+	if result.Error != nil {
+		return 0, result.Error
+	}
+	return model.ID, nil
 }
 
 // Delete implements iRepository.
-func (r *Repository) Delete(dataId int) {
-	result := r.Db.Where("id = ?", dataId).Delete(new(budget))
-	helper.ErrorPanic(result.Error, "Delete budget")
+func (r *Repository) Delete(dataId int) error {
+	result := r.Db.Where("id = ?", dataId).Delete(new(database.Invoice))
+	if result.Error != nil {
+		return result.Error
+	}
+	return nil
 }
 
 // FindAll implements iRepository.
-func (r *Repository) FindAll() (list []budget) {
-	var announceList []budget
+func (r *Repository) FindAll() ([]database.Invoice, error) {
+	var announceList []database.Invoice
 	result := r.Db.Find(&announceList)
-	helper.ErrorPanic(result.Error, "Find all budget")
-	return announceList
+
+	if result.Error != nil {
+		return announceList, result.Error
+	}
+	return announceList, nil
 }
 
 // FindById implements iRepository.
-func (r *Repository) FindById(dataId int) (data budget, err error) {
+func (r *Repository) FindById(dataId int) (database.Invoice, error) {
 	var model database.Budgets
 	result := r.Db.Find(&model, dataId)
 
-	res := budget{
-		Title:    model.Name,
-		Subtitle: model.Description,
+	res := database.Invoice{
+		Name: model.Name,
 	}
 
 	if result != nil {
@@ -63,12 +74,16 @@ func (r *Repository) FindById(dataId int) (data budget, err error) {
 }
 
 // Update implements iRepository.
-func (r *Repository) Update(data updateBudgetDto) {
+func (r *Repository) Update(data updateBudgetDto) error {
 	var updateAn = updateBudgetDto{
 		Title: data.Subtitle,
 		Id:    int(data.Id),
 	}
 
 	result := r.Db.Model(&data).Updates(updateAn)
-	helper.ErrorPanic(result.Error, "Update invoice")
+
+	if result.Error != nil {
+		return result.Error
+	}
+	return nil
 }

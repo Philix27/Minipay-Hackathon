@@ -37,7 +37,7 @@ func (r *Repository) FindAll() ([]budget, error) {
 	var announceList []budget
 	result := r.Db.Find(&announceList)
 	// helper.ErrorPanic(result.Error, "Find all budget")
-	return announceList,  result.Error
+	return announceList, result.Error
 }
 
 // FindById implements iRepository.
@@ -67,5 +67,5 @@ func (r *Repository) Update(data updateBudgetDto) error {
 
 	result := r.Db.Model(&data).Updates(updateAn)
 	// helper.ErrorPanic(result.Error, "Update ")
-		return result.Error
+	return result.Error
 }

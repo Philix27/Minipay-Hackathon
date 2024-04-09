@@ -5,11 +5,11 @@ import (
 )
 
 type iRepository interface {
-	Create(data createBudgetDto)  error
-	Update(data updateBudgetDto)  error
-	Delete(dataId int)  error
+	Create(data createBudgetDto) error
+	Update(data updateBudgetDto) error
+	Delete(dataId int) error
 	FindById(dataId int) (budget, error)
-	FindAll() ([]budget,  error)
+	FindAll() ([]budget, error)
 }
 
 type iService interface {
@@ -27,5 +27,3 @@ type iRoutes interface {
 	getOne(c *fiber.Ctx) error
 	deleteOne(c *fiber.Ctx) error
 }
-
-

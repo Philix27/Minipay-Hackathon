@@ -29,8 +29,8 @@ func (s *Service) Create(data createBudgetDto) {
 }
 
 // FindAll implements iService.
-func (s *Service) FindAll() ([]budgetResponseDto , error) {
-	result , err := s.repository.FindAll()
+func (s *Service) FindAll() ([]budgetResponseDto, error) {
+	result, err := s.repository.FindAll()
 
 	if err != nil {
 		return nil, errors.New("cannot find all")

@@ -1,46 +1,69 @@
 package invoice
 
 import (
+	"pay3/libs/database"
+	"strconv"
+
 	"github.com/gofiber/fiber/v2"
 )
 
 var list = []budget{}
 
 type Controllers struct {
-	service iService
+	repo Repository
 }
 
-func NewControllers(svc iService) iRoutes {
+func NewControllers(repository Repository) iRoutes {
 	return &Controllers{
-		service: svc,
+		repo: repository,
 	}
 }
 
-// create implements iRoutes.
-func (*Controllers) create(c *fiber.Ctx) error {
+type Response struct {
+	Message string `json:"message"`
+	Payload string `json:"payload"`
+}
 
-	body := &budget{}
+// create implements iRoutes.
+func (a *Controllers) create(c *fiber.Ctx) error {
+
+	body := &dto_Create{}
 
 	if err := c.BodyParser(body); err != nil {
 		return err
 	}
 
-	body.Id = len(list) + 1
+	res, err := a.repo.Create(*body)
 
-	list = append(list, *body)
+	sm := Response{Message: "oops an error occurred"}
 
-	return c.JSON(list)
+	if err != nil {
+		return c.JSON(&sm)
+	}
 
-}
-
-// deleteOne implements iRoutes.
-func (*Controllers) deleteOne(c *fiber.Ctx) error {
-	panic("unimplemented")
+	return c.Status(201).JSON(Response{
+		Message: "SUCCESS",
+		Payload: "created invoice with id " + strconv.Itoa(int(res)),
+	})
 }
 
 // getAll implements iRoutes.
-func (*Controllers) getAll(c *fiber.Ctx) error {
-	panic("unimplemented")
+func (a *Controllers) getAll(c *fiber.Ctx) error {
+
+	res, err := a.repo.FindAll()
+
+	sm := Response{Message: "oops an error occurred"}
+
+	if err != nil {
+		return c.JSON(&sm)
+	}
+
+	data := map[string][]database.Invoice{
+		"payload": res,
+	}
+
+	return c.Status(201).JSON(data)
+
 }
 
 // getOne implements iRoutes.
@@ -50,5 +73,10 @@ func (*Controllers) getOne(c *fiber.Ctx) error {
 
 // update implements iRoutes.
 func (*Controllers) update(c *fiber.Ctx) error {
+	panic("unimplemented")
+}
+
+// deleteOne implements iRoutes.
+func (*Controllers) deleteOne(c *fiber.Ctx) error {
 	panic("unimplemented")
 }

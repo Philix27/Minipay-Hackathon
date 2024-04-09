@@ -1,24 +1,22 @@
 package invoice
 
-import (
-	"github.com/gofiber/fiber/v2"
-)
+import "github.com/gofiber/fiber/v2"
 
-type iRepository interface {
-	Create(data createBudgetDto)
-	Update(data updateBudgetDto)
-	Delete(dataId int)
-	FindById(dataId int) (data budget, err error)
-	FindAll() (list []budget)
-}
+// type iRepository interface {
+// 	Create(data createBudgetDto)
+// 	Update(data updateBudgetDto)
+// 	Delete(dataId int)
+// 	FindById(dataId int) (data budget, err error)
+// 	FindAll() (list []budget)
+// }
 
-type iService interface {
-	Create(data createBudgetDto)
-	Update(data updateBudgetDto)
-	Delete(dataId int)
-	FindById(dataId int) (data budgetResponseDto, err error)
-	FindAll() (list []budgetResponseDto)
-}
+// type iService interface {
+// 	Create(data createBudgetDto) createBudgetDto
+// 	Update(data updateBudgetDto)
+// 	Delete(dataId int)
+// 	FindById(dataId int) (data budgetResponseDto, err error)
+// 	FindAll() (list []budgetResponseDto)
+// }
 
 type iRoutes interface {
 	create(c *fiber.Ctx) error
