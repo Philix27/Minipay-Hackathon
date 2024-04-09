@@ -15,7 +15,7 @@ const styles = {
     flex flex-col md:flex-row
     w-full flex-grow-[1] 
     md:space-x-8
-    space-y-4 items-center 
+    items-center 
     justify-center
 
 `,
@@ -47,23 +47,23 @@ export default function FormsComps() {
         `}
       >
         <div
-          className={"w-[90%] space-y-6 flex flex-col items-center md:w-[75%]"}
+          className={"w-[90%] space-y-6 flex flex-col items-start md:w-[75%]"}
         >
           {/* Personal SECTION */}
           <TextH v="h3">Personal Info</TextH>
+          <hr className={`border-muted-foreground border-[1px] w-full`} />
+          <AppInput
+            control={form.control}
+            name="fromBusinessName"
+            label="Your name"
+          />
           <div className={styles.inputGroup}>
-            <AppInput
-              control={form.control}
-              name="fromBusinessName"
-              label="Your name"
-            />
             <AppInput
               control={form.control}
               name="email"
               label="Email"
               place="Enter email"
             />
-
             <AppInput control={form.control} name="date" label="Date" />
           </div>
           <div className={styles.inputGroup}>
@@ -79,27 +79,27 @@ export default function FormsComps() {
             />
           </div>
           <TextH v="h3">Client's Info</TextH>
-          <div className={styles.inputGroup}>
-            <AppInput
-              control={form.control}
-              name="clientBusinessName"
-              label="Business name"
-              place="Client's name"
-            />
-            <AppInput
-              control={form.control}
-              name="clientAddress"
-              label="Address"
-              place="Address"
-            />
-            <AppInput
-              control={form.control}
-              name="clientWebsite"
-              label="Website"
-              place="Website"
-            />
-          </div>
+          <hr className={`border-muted-foreground border-[1px] w-full`} />
+          <AppInput
+            control={form.control}
+            name="clientBusinessName"
+            label="Business name"
+            place="Client's name"
+          />
+          <AppInput
+            control={form.control}
+            name="clientAddress"
+            label="Address"
+            place="Address"
+          />
+          <AppInput
+            control={form.control}
+            name="clientWebsite"
+            label="Website"
+            place="Website"
+          />
           <TextH v="h3">Footer</TextH>
+          <hr className={`border-muted-foreground border-[1px] w-full`} />
           <div className={styles.inputGroup}>
             <AppInput
               control={form.control}
@@ -110,6 +110,93 @@ export default function FormsComps() {
               control={form.control}
               name="thanksMsg"
               label="Thank you message"
+            />
+          </div>
+          <TextH v="h3">Invoice Items</TextH>
+          <hr className={`border-muted-foreground border-[1px] w-full`} />
+          {/* Items */}
+          <div className={styles.inputGroup}>
+            <AppInput
+              control={form.control}
+              name="footerNote"
+              label="Item 1"
+              place="Name"
+            />
+
+            <AppInput
+              control={form.control}
+              name="thanksMsg"
+              label="Item 1"
+              place="Quantity"
+            />
+            <AppInput
+              control={form.control}
+              name="thanksMsg"
+              label="Item 1"
+              place="Amount"
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <AppInput
+              control={form.control}
+              name="footerNote"
+              label="Item 1"
+              place="Name"
+            />
+
+            <AppInput
+              control={form.control}
+              name="thanksMsg"
+              label="Item 1"
+              place="Quantity"
+            />
+            <AppInput
+              control={form.control}
+              name="thanksMsg"
+              label="Item 1"
+              place="Amount"
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <AppInput
+              control={form.control}
+              name="footerNote"
+              label="Item 1"
+              place="Name"
+            />
+
+            <AppInput
+              control={form.control}
+              name="thanksMsg"
+              label="Item 1"
+              place="Quantity"
+            />
+            <AppInput
+              control={form.control}
+              name="thanksMsg"
+              label="Item 1"
+              place="Amount"
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <AppInput
+              control={form.control}
+              name="footerNote"
+              label="Item 1"
+              place="Name"
+            />
+
+            <AppInput
+              control={form.control}
+              name="thanksMsg"
+              label="Item 1"
+              place="Quantity"
+            />
+            <AppInput
+              control={form.control}
+              name="thanksMsg"
+              label="Item 1"
+              place="Amount"
             />
           </div>
           <Button type="submit">Submit</Button>

@@ -17,7 +17,7 @@ interface MainNavProps {
 
 export function MainNav({ items }: MainNavProps) {
   // const { user, isLoggedIn, isLoading } = useUser()
-  const address = useAddress()
+  // const address = useAddress()
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center space-x-2">
