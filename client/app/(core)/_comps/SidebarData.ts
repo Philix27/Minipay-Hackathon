@@ -9,11 +9,19 @@ export type ISection = {
 }
 export const data: ISection[] = [
   {
-    title: "Home",
+    title: "Account",
     group: [
       {
-        name: "Dashboard",
+        name: "Overview",
         link: AppPages.dashboard,
+      },
+      {
+        name: "Profile",
+        link: AppPages.settings,
+      },
+      {
+        name: "Settings",
+        link: AppPages.settings,
       },
     ],
   },
@@ -30,23 +38,7 @@ export const data: ISection[] = [
       },
     ],
   },
-  {
-    title: "Payment Links",
-    group: [
-      {
-        name: "All",
-        link: AppPages.paymentLink,
-      },
-      {
-        name: "Manage",
-        link: AppPages.paymentLink,
-      },
-      {
-        name: "Create New",
-        link: AppPages.paymentLink,
-      },
-    ],
-  },
+
   {
     title: "Budget",
     group: [
@@ -70,19 +62,6 @@ export const data: ISection[] = [
       {
         name: "Fiat",
         link: AppPages.transactionsFiat,
-      },
-    ],
-  },
-  {
-    title: "Settings",
-    group: [
-      {
-        name: "Profile",
-        link: AppPages.settings,
-      },
-      {
-        name: "Settings",
-        link: AppPages.settings,
       },
     ],
   },

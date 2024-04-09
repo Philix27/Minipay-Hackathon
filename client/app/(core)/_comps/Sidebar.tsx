@@ -52,7 +52,7 @@ export function SidebarGroup(params: { section: ISection }) {
             href={val.link}
             className="hover:[&>*]:bg-secondary [&>p]:text-white"
           >
-            <div className={"px-4 py-3 "}>
+            <div className={"pr-4 pl-10 py-2"}>
               <TextB v="p5" className="text-primary-foreground ">
                 {val.name}
               </TextB>

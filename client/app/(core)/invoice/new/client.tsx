@@ -10,7 +10,7 @@ export default function NewInvoiceClient() {
 
   return (
     <div className={"w-full"}>
-      <div className={"w-full h-[50px] flex justify-between border-b-2"}>
+      <div className={"w-full h-[70px] flex justify-between border-b-2"}>
         <div
           onClick={() => setActiveTab(true)}
           className={`w-[50%] flex items-center justify-center 
