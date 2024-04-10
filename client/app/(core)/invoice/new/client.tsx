@@ -2,8 +2,9 @@
 
 import React, { useState } from "react"
 import { TextH } from "@/comps"
+
+import FormComps from "./form"
 import PreviewComp from "./preview"
-import  FormComps  from "./form"
 
 export default function NewInvoiceClient() {
   const [isFormTab, setActiveTab] = useState<boolean>(true)

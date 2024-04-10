@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { Button, TextH } from "@/comps"
+import { AppAccordion, Button, TextH } from "@/comps"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -49,69 +49,111 @@ export default function FormsComps() {
         <div
           className={"w-[90%] space-y-6 flex flex-col items-start md:w-[75%]"}
         >
-          {/* Personal SECTION */}
-          <TextH v="h3">Personal Info</TextH>
-          <hr className={`border-muted-foreground border-[1px] w-full`} />
-          <AppInput
-            control={form.control}
-            name="fromBusinessName"
-            label="Your name"
+          <AppAccordion
+            data={[
+              {
+                value: "item1",
+                title: (
+                  <div className={"w-full bg-primary py-2"}>
+                    <TextH v="h4">Personal Info</TextH>
+                  </div>
+                ),
+                content: (
+                  <>
+                    <AppInput
+                      control={form.control}
+                      name="fromBusinessName"
+                      label="Your name"
+                    />
+                    <div className={styles.inputGroup}>
+                      <AppInput
+                        control={form.control}
+                        name="email"
+                        label="Email"
+                        place="Enter email"
+                      />
+                      <AppInput
+                        control={form.control}
+                        name="date"
+                        label="Date"
+                      />
+                    </div>
+                    <div className={styles.inputGroup}>
+                      <AppInput
+                        control={form.control}
+                        name="clientAddress"
+                        label="Address"
+                      />
+                      <AppInput
+                        control={form.control}
+                        name="phone"
+                        label="Phone number"
+                      />
+                    </div>
+                  </>
+                ),
+              },
+              {
+                value: "item2",
+                title: (
+                  <div className={"w-full bg-primary py-2"}>
+                    <TextH v="h4">Client's Info</TextH>
+                  </div>
+                ),
+                content: (
+                  <>
+                    <AppInput
+                      control={form.control}
+                      name="clientBusinessName"
+                      label="Business name"
+                      place="Client's name"
+                    />
+                    <AppInput
+                      control={form.control}
+                      name="clientBusinessName"
+                      label="Business name"
+                      place="Client's name"
+                    />
+                    <AppInput
+                      control={form.control}
+                      name="clientAddress"
+                      label="Address"
+                      place="Address"
+                    />
+                    <AppInput
+                      control={form.control}
+                      name="clientWebsite"
+                      label="Website"
+                      place="Website"
+                    />
+                  </>
+                ),
+              },
+              {
+                value: "item3",
+                title: (
+                  <div className={"w-full bg-primary py-2"}>
+                    <TextH v="h4">Footer Notes</TextH>
+                  </div>
+                ),
+                content: (
+                  <div className={styles.inputGroup}>
+                    <AppInput
+                      control={form.control}
+                      name="footerNote"
+                      label="Footer note"
+                    />
+                    <AppInput
+                      control={form.control}
+                      name="thanksMsg"
+                      label="Thank you message"
+                    />
+                  </div>
+                ),
+              },
+            ]}
           />
-          <div className={styles.inputGroup}>
-            <AppInput
-              control={form.control}
-              name="email"
-              label="Email"
-              place="Enter email"
-            />
-            <AppInput control={form.control} name="date" label="Date" />
-          </div>
-          <div className={styles.inputGroup}>
-            <AppInput
-              control={form.control}
-              name="clientAddress"
-              label="Address"
-            />
-            <AppInput
-              control={form.control}
-              name="phone"
-              label="Phone number"
-            />
-          </div>
-          <TextH v="h3">Client's Info</TextH>
-          <hr className={`border-muted-foreground border-[1px] w-full`} />
-          <AppInput
-            control={form.control}
-            name="clientBusinessName"
-            label="Business name"
-            place="Client's name"
-          />
-          <AppInput
-            control={form.control}
-            name="clientAddress"
-            label="Address"
-            place="Address"
-          />
-          <AppInput
-            control={form.control}
-            name="clientWebsite"
-            label="Website"
-            place="Website"
-          />
-          <TextH v="h3">Footer</TextH>
-          <hr className={`border-muted-foreground border-[1px] w-full`} />
-          <div className={styles.inputGroup}>
-            <AppInput
-              control={form.control}
-              name="footerNote"
-              label="Footer note"
-            />
-            <AppInput
-              control={form.control}
-              name="thanksMsg"
-              label="Thank you message"
-            />
-          </div>
+
           <TextH v="h3">Invoice Items</TextH>
           <hr className={`border-muted-foreground border-[1px] w-full`} />
           {/* Items */}

@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { TextB, TextH } from "@/comps"
-import { ArrowDown, ArrowUp, Link } from "lucide-react"
+import { ArrowDown, ArrowUp } from "lucide-react"
 
 import { ISection } from "./SidebarData"
+import Link from "next/link"
 
 export function SidebarGroup(params: { section: ISection }) {
   const [isOpen, setIsOpen] = useState(false)
