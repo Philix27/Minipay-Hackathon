@@ -6,14 +6,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./accordion"
+import { IAccordionContent } from "./types"
 
-type IContent = {
-  title: JSX.Element
-  value: string
-  content: JSX.Element
-}
-
-export function AppAccordion(props: { data: IContent[] }) {
+export function AppAccordion(props: { data: IAccordionContent[] }) {
   return (
     <Accordion type="single" collapsible className={"w-full"}>
       {props.data.map((val, i) => (
@@ -25,3 +20,5 @@ export function AppAccordion(props: { data: IContent[] }) {
     </Accordion>
   )
 }
+
+export * from "./types"

@@ -17,7 +17,7 @@ export default function JumbutronSection(props: {
         {props.title}
       </TextH>
       <TextB v={"p6"} className="leading-loose">
-        {props.title}
+        {props.subtitle}
       </TextB>
     </div>
   )

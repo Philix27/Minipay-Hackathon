@@ -25,19 +25,19 @@ export default function HeroSection(props: {
               alt=""
               width={300}
               height={400}
-              className={"h-[350px] md:h-[450px] w-[250px] md:w-[350px]"}
+              className={"h-[350px] w-[250px] md:h-[450px] md:w-[350px]"}
             />
           </div>
-          <div className="h-full flex flex-col items-start justify-center px-4 py-8 md:py-4">
-            <TextH v="h1">{props.title}</TextH>
+          <div className="h-full flex flex-col items-start justify-center px-2 md:px-4 py-8 md:py-4">
+            <TextH className="text-2xl font-extrabold">{props.title}</TextH>
             <div className="mb-10" />
             <TextB v={"p4"}>{props.subtitle}</TextB>
           </div>
         </>
       ) : (
         <>
-          <div className="h-full flex flex-col items-start justify-center px-4 py-8 md:py-4">
-            <TextH v="h1">{props.title}</TextH>
+          <div className="h-full flex flex-col items-start justify-center px-2 md:px-4 py-8 md:py-4">
+            <TextH className="text-2xl font-extrabold">{props.title}</TextH>
             <div className="mb-10" />
             <TextB v={"p4"}>{props.subtitle}</TextB>
           </div>
@@ -47,7 +47,7 @@ export default function HeroSection(props: {
               alt=""
               width={300}
               height={400}
-              className={"h-[350px] md:h-[450px] w-[250px] md:w-[350px]"}
+              className={"h-[350px] w-[250px] md:h-[450px] md:w-[350px]"}
             />
           </div>
         </>

@@ -7,10 +7,11 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import { defaultValues, formSchema } from "./formSchema"
+import { clientInfo, footerInfo, invoiceItems, personalInfo } from "./info"
 import AppInput from "./reform"
 import { Form } from "./ui"
 
-const styles = {
+export const styles = {
   inputGroup: `
     flex flex-col md:flex-row
     w-full flex-grow-[1] 
@@ -51,196 +52,13 @@ export default function FormsComps() {
         >
           <AppAccordion
             data={[
-              {
-                value: "item1",
-                title: (
-                  <div className={"w-full bg-primary py-2"}>
-                    <TextH v="h4">Personal Info</TextH>
-                  </div>
-                ),
-                content: (
-                  <>
-                    <AppInput
-                      control={form.control}
-                      name="fromBusinessName"
-                      label="Your name"
-                    />
-                    <div className={styles.inputGroup}>
-                      <AppInput
-                        control={form.control}
-                        name="email"
-                        label="Email"
-                        place="Enter email"
-                      />
-                      <AppInput
-                        control={form.control}
-                        name="date"
-                        label="Date"
-                      />
-                    </div>
-                    <div className={styles.inputGroup}>
-                      <AppInput
-                        control={form.control}
-                        name="clientAddress"
-                        label="Address"
-                      />
-                      <AppInput
-                        control={form.control}
-                        name="phone"
-                        label="Phone number"
-                      />
-                    </div>
-                  </>
-                ),
-              },
-              {
-                value: "item2",
-                title: (
-                  <div className={"w-full bg-primary py-2"}>
-                    <TextH v="h4">Client's Info</TextH>
-                  </div>
-                ),
-                content: (
-                  <>
-                    <AppInput
-                      control={form.control}
-                      name="clientBusinessName"
-                      label="Business name"
-                      place="Client's name"
-                    />
-                    <AppInput
-                      control={form.control}
-                      name="clientBusinessName"
-                      label="Business name"
-                      place="Client's name"
-                    />
-                    <AppInput
-                      control={form.control}
-                      name="clientAddress"
-                      label="Address"
-                      place="Address"
-                    />
-                    <AppInput
-                      control={form.control}
-                      name="clientWebsite"
-                      label="Website"
-                      place="Website"
-                    />
-                  </>
-                ),
-              },
-              {
-                value: "item3",
-                title: (
-                  <div className={"w-full bg-primary py-2"}>
-                    <TextH v="h4">Footer Notes</TextH>
-                  </div>
-                ),
-                content: (
-                  <div className={styles.inputGroup}>
-                    <AppInput
-                      control={form.control}
-                      name="footerNote"
-                      label="Footer note"
-                    />
-                    <AppInput
-                      control={form.control}
-                      name="thanksMsg"
-                      label="Thank you message"
-                    />
-                  </div>
-                ),
-              },
+              personalInfo({ form }),
+              clientInfo({ form }),
+              invoiceItems({ form }),
+              footerInfo({ form }),
             ]}
           />
-
-          <TextH v="h3">Invoice Items</TextH>
-          <hr className={`border-muted-foreground border-[1px] w-full`} />
-          {/* Items */}
-          <div className={styles.inputGroup}>
-            <AppInput
-              control={form.control}
-              name="footerNote"
-              label="Item 1"
-              place="Name"
-            />
-
-            <AppInput
-              control={form.control}
-              name="thanksMsg"
-              label="Item 1"
-              place="Quantity"
-            />
-            <AppInput
-              control={form.control}
-              name="thanksMsg"
-              label="Item 1"
-              place="Amount"
-            />
-          </div>
-          <div className={styles.inputGroup}>
-            <AppInput
-              control={form.control}
-              name="footerNote"
-              label="Item 1"
-              place="Name"
-            />
-
-            <AppInput
-              control={form.control}
-              name="thanksMsg"
-              label="Item 1"
-              place="Quantity"
-            />
-            <AppInput
-              control={form.control}
-              name="thanksMsg"
-              label="Item 1"
-              place="Amount"
-            />
-          </div>
-          <div className={styles.inputGroup}>
-            <AppInput
-              control={form.control}
-              name="footerNote"
-              label="Item 1"
-              place="Name"
-            />
-
-            <AppInput
-              control={form.control}
-              name="thanksMsg"
-              label="Item 1"
-              place="Quantity"
-            />
-            <AppInput
-              control={form.control}
-              name="thanksMsg"
-              label="Item 1"
-              place="Amount"
-            />
-          </div>
-          <div className={styles.inputGroup}>
-            <AppInput
-              control={form.control}
-              name="footerNote"
-              label="Item 1"
-              place="Name"
-            />
-
-            <AppInput
-              control={form.control}
-              name="thanksMsg"
-              label="Item 1"
-              place="Quantity"
-            />
-            <AppInput
-              control={form.control}
-              name="thanksMsg"
-              label="Item 1"
-              place="Amount"
-            />
-          </div>
+        
           <Button type="submit">Submit</Button>
         </div>
       </form>

@@ -41,3 +41,5 @@ export const defaultValues: z.infer<typeof formSchema> = {
   footerNote: "",
   thanksMsg: "",
 }
+
+export type IFormSchema = z.infer<typeof formSchema>
