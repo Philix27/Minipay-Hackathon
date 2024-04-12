@@ -4,8 +4,8 @@ import { UseFormReturn } from "react-hook-form"
 import { IAccordionContent, TextH } from "@/app/comps"
 
 import form, { styles } from ".."
+import AppInput from "../../../../../comps/forms/reform"
 import { IFormSchema } from "../../formSchema"
-import AppInput from "../reform"
 
 export function invoiceItems(props: {
   form: UseFormReturn<IFormSchema>
@@ -15,7 +15,7 @@ export function invoiceItems(props: {
     value: "invoiceItems",
     title: (
       <div className={"w-full bg-primary py-2"}>
-        <TextH v="h4">Invoice Items</TextH>
+        <TextH v="h5">Invoice Items</TextH>
       </div>
     ),
     content: (
@@ -23,85 +23,93 @@ export function invoiceItems(props: {
         <div className={styles.inputGroup}>
           <AppInput
             control={form.control}
-            name="footerNote"
+            name={"item1_name"}
             label="Item 1"
             place="Name"
           />
 
           <AppInput
             control={form.control}
-            name="thanksMsg"
+            name={"item1_amount"}
             label="Item 1"
             place="Quantity"
+            type="no"
           />
           <AppInput
             control={form.control}
-            name="thanksMsg"
+            name={"item1_quantity"}
             label="Item 1"
             place="Amount"
+            type="no"
           />
         </div>
         <div className={styles.inputGroup}>
           <AppInput
             control={form.control}
-            name="footerNote"
-            label="Item 1"
+            name={"item2_name"}
+            label="Item 2"
             place="Name"
           />
 
           <AppInput
             control={form.control}
-            name="thanksMsg"
-            label="Item 1"
+            name={"item2_amount"}
+            label="Item 2"
             place="Quantity"
+            type="no"
           />
           <AppInput
             control={form.control}
-            name="thanksMsg"
-            label="Item 1"
+            name={"item2_quantity"}
+            label="Item 2"
             place="Amount"
+            type="no"
           />
         </div>
         <div className={styles.inputGroup}>
           <AppInput
             control={form.control}
-            name="footerNote"
-            label="Item 1"
+            name={"item3_name"}
+            label="Item 3"
             place="Name"
           />
 
           <AppInput
             control={form.control}
-            name="thanksMsg"
-            label="Item 1"
+            name={"item3_amount"}
+            label="Item 3"
             place="Quantity"
+            type="no"
           />
           <AppInput
             control={form.control}
-            name="thanksMsg"
-            label="Item 1"
+            name={"item3_quantity"}
+            label="Item 3"
             place="Amount"
+            type="no"
           />
         </div>
         <div className={styles.inputGroup}>
           <AppInput
             control={form.control}
-            name="footerNote"
-            label="Item 1"
+            name={"item4_name"}
+            label="Item 4"
             place="Name"
           />
 
           <AppInput
             control={form.control}
-            name="thanksMsg"
-            label="Item 1"
+            name={"item4_amount"}
+            label="Item 4"
             place="Quantity"
+            type="no"
           />
           <AppInput
             control={form.control}
-            name="thanksMsg"
-            label="Item 1"
+            name={"item4_quantity"}
+            label="Item 4"
             place="Amount"
+            type="no"
           />
         </div>
       </>

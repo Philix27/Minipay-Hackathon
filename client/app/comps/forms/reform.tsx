@@ -1,23 +1,17 @@
 import React from "react"
 import {
-  Control,
-  ControllerRenderProps,
-  FieldValues,
-  Path,
-} from "react-hook-form"
-
-import {
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-  Input,
   TextB,
-} from "@/app/comps"
+} from "@/comps"
+import { Control, FieldValues, Path } from "react-hook-form"
 
-type IFormTypes = "text" | "no" | "date" | "file"
+import { IFormTypes, InputSorter } from "./sorter"
+
 export default function AppInput<T extends FieldValues>(props: {
   control: Control<T, any>
   /** name to be used as label */
@@ -55,20 +49,4 @@ export default function AppInput<T extends FieldValues>(props: {
       />
     </div>
   )
-}
-
-function InputSorter<T extends FieldValues>(props: {
-  place: string | undefined
-  type: IFormTypes
-  field: ControllerRenderProps<T, Path<T>>
-}): JSX.Element {
-  switch (props.type) {
-    case "text":
-      return <Input placeholder={props.place} {...props.field} />
-    case "no":
-      return <Input placeholder={props.place} {...props.field} />
-    default:
-      return <Input placeholder={props.place} {...props.field} />
-      break
-  }
 }

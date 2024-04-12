@@ -4,8 +4,8 @@ import { UseFormReturn } from "react-hook-form"
 import { IAccordionContent, TextH } from "@/app/comps"
 
 import form, { styles } from ".."
+import AppInput from "../../../../../comps/forms/reform"
 import { IFormSchema } from "../../formSchema"
-import AppInput from "../reform"
 
 export function personalInfo(props: {
   form: UseFormReturn<IFormSchema>
@@ -15,7 +15,7 @@ export function personalInfo(props: {
     value: "item1",
     title: (
       <div className={"w-full bg-primary py-2"}>
-        <TextH v="h4">Personal Info</TextH>
+        <TextH v="h5">Personal Info</TextH>
       </div>
     ),
     content: (

@@ -3,9 +3,9 @@ import { UseFormReturn } from "react-hook-form"
 
 import { IAccordionContent, TextH } from "@/app/comps"
 
+import AppInput from "../../../../../comps/forms/reform"
 import { IFormSchema } from "../../formSchema"
 import form, { styles } from "../index"
-import AppInput from "../reform"
 
 export function footerInfo(props: {
   form: UseFormReturn<IFormSchema>
@@ -15,7 +15,7 @@ export function footerInfo(props: {
     value: "item3",
     title: (
       <div className={"w-full bg-primary py-2"}>
-        <TextH v="h4">Footer Notes</TextH>
+        <TextH v="h5">Footer Notes</TextH>
       </div>
     ),
     content: (
