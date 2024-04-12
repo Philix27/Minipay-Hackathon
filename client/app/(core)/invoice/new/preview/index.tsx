@@ -1,8 +1,6 @@
 import React from "react"
 import { UseFormReturn } from "react-hook-form"
 
-import { TextB, TextH } from "@/app/comps"
-
 import { IFormSchema } from "../formSchema"
 import { AddressBar } from "./addressBar"
 import { FooterBar } from "./footerBar"
@@ -15,7 +13,7 @@ export default function PreviewComp(props: {
 }) {
   const { form } = props
   return (
-    <div className={"flex flex-col items-center justify-center mt-5"}>
+    <div className={"flex flex-col items-center justify-center my-5"}>
       <div
         className={`
           w-[90%]
