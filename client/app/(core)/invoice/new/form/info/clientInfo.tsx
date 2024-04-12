@@ -2,8 +2,6 @@ import React from "react"
 import { UseFormReturn } from "react-hook-form"
 
 import { IAccordionContent, TextH } from "@/app/comps"
-
-import form, { styles } from ".."
 import AppInput from "../../../../../comps/forms/reform"
 import { IFormSchema } from "../../formSchema"
 
@@ -22,25 +20,25 @@ export function clientInfo(props: {
       <>
         <AppInput
           control={form.control}
-          name="clientBusinessName"
+          name="toBusinessName"
           label="Business name"
           place="Client's name"
         />
         <AppInput
           control={form.control}
-          name="clientBusinessName"
-          label="Business name"
-          place="Client's name"
+          name="toEmail"
+          label="Business email"
+          place="Client's email"
         />
         <AppInput
           control={form.control}
-          name="clientAddress"
+          name="toAddress"
           label="Address"
           place="Address"
         />
         <AppInput
           control={form.control}
-          name="clientWebsite"
+          name="toWebsite"
           label="Website"
           place="Website"
         />

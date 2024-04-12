@@ -28,19 +28,19 @@ export function personalInfo(props: {
         <div className={styles.inputGroup}>
           <AppInput
             control={form.control}
-            name="email"
+            name="fromEmail"
             label="Email"
             place="Enter email"
           />
-          <AppInput control={form.control} name="date" label="Date" />
+          <AppInput control={form.control} name="fromDate" label="Date" />
         </div>
         <div className={styles.inputGroup}>
+          <AppInput control={form.control} name="fromAddress" label="Address" />
           <AppInput
             control={form.control}
-            name="clientAddress"
-            label="Address"
+            name="fromPhone"
+            label="Phone number"
           />
-          <AppInput control={form.control} name="phone" label="Phone number" />
         </div>
       </>
     ),

@@ -1,33 +1,40 @@
 import { z } from "zod"
 
 export const formSchema = z.object({
-  clientBusinessName: z.string().min(2, {
+  // To
+  toBusinessName: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
+  toWebsite: z.string().optional(),
+  toAddress: z.string().optional(),
+  toEmail: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  toPhone: z.string().optional(),
+  // From
   fromBusinessName: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
-  clientAddress: z.string().min(2, {
+  fromPhone: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
-  phone: z.string().min(2, {
+  fromEmail: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
-  email: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-  clientWebsite: z.string().min(6, {
+  fromDate: z.string().min(6, {
     message: "Username must be at least 6 characters.",
   }),
-  date: z.string().min(6, {
+  fromAddress: z.string().min(6, {
     message: "Username must be at least 6 characters.",
   }),
+  // Footer
   footerNote: z.string().min(6, {
     message: "Username must be at least 6 characters.",
   }),
   thanksMsg: z.string().min(6, {
     message: "Username must be at least 6 characters.",
   }),
+  /// Items
   item1_name: z.string().min(2, {
     message: "At least two characters",
   }),
@@ -67,13 +74,6 @@ export const formSchema = z.object({
 })
 
 export const defaultValues: z.infer<typeof formSchema> = {
-  clientBusinessName: "",
-  fromBusinessName: "",
-  clientAddress: "",
-  phone: "",
-  email: "",
-  clientWebsite: "",
-  date: "",
   footerNote: "",
   thanksMsg: "",
   item1_name: "",
@@ -87,7 +87,14 @@ export const defaultValues: z.infer<typeof formSchema> = {
   item3_quantity: 0,
   item4_name: "",
   item4_amount: 0,
-  item4_quantity: 0
+  item4_quantity: 0,
+  toBusinessName: "",
+  toEmail: "",
+  fromBusinessName: "",
+  fromPhone: "",
+  fromEmail: "",
+  fromDate: "",
+  fromAddress: "",
 }
 
 export type IFormSchema = z.infer<typeof formSchema>

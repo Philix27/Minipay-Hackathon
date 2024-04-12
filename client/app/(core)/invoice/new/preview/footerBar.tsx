@@ -1,7 +1,7 @@
 import React from "react"
 import { TextB } from "@/comps"
 
-export function FooterBar() {
+export function FooterBar(props: { thankYou?: string; msg?: string }) {
   return (
     <div
       className={`
@@ -10,8 +10,12 @@ export function FooterBar() {
       border-secondary
     `}
     >
-      <TextB v="p6">Thank you.</TextB>
-      <TextB v="p6">This invoice is expiry on the x of June, 2023</TextB>
+      <TextB v="p6">{props.thankYou ? props.thankYou : "Thank you"}</TextB>
+      <TextB v="p6">
+        {props.msg
+          ? props.msg
+          : "We hope to here from you as soon as possible"}
+      </TextB>
     </div>
   )
 }

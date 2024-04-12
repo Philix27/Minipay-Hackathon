@@ -23,11 +23,25 @@ export default function PreviewComp(props: {
       >
         <TopBar
           bizName={form.getValues("fromBusinessName")}
-          invoiceDate={form.getValues("clientAddress")}
+          invoiceDate={form.getValues("fromDate")}
         />
-        <AddressBar />
+        <AddressBar
+          fromAddress={form.getValues("fromAddress")}
+          fromEmail={form.getValues("fromEmail")}
+          fromPhone={form.getValues("fromPhone")}
+          toAddress={form.getValues("toAddress") || ""}
+          toPhone={form.getValues("toPhone") || ""}
+          toEmail={form.getValues("toEmail")}
+          toWebsite={form.getValues("toWebsite") || ""}
+          toBizName={form.getValues("toBusinessName") || ""}
+        />
         <ItemsBar />
-        <TotalBar />
+        <TotalBar
+          total={"12"}
+          subtotal={"23.90"}
+          tax={"256%"}
+          discount={"278"}
+        />
         <FooterBar />
       </div>
     </div>

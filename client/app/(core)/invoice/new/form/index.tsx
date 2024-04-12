@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { memo } from "react"
 import { UseFormReturn } from "react-hook-form"
 
 import { AppAccordion, Button, Form } from "@/app/comps"
@@ -15,11 +15,12 @@ export const styles = {
     md:space-x-8
     items-center 
     justify-center
-
 `,
 }
 
-export default function FormsComps(props: {
+const FormsComps = memo(Comps)
+
+function Comps(props: {
   form: UseFormReturn<IFormSchema>
   onSubmit: (values: IFormSchema) => void
 }) {
@@ -47,10 +48,28 @@ export default function FormsComps(props: {
               footerInfo({ form }),
             ]}
           />
-
+          <Accordion form={form} />
           <Button type="submit">Submit</Button>
         </div>
       </form>
     </Form>
   )
 }
+
+export default FormsComps
+
+const Ack = (props: { form: UseFormReturn<IFormSchema> }) => {
+  const form = props.form
+  return (
+    <AppAccordion
+      data={[
+        personalInfo({ form }),
+        clientInfo({ form }),
+        invoiceItems({ form }),
+        footerInfo({ form }),
+      ]}
+    />
+  )
+}
+
+const Accordion = memo(Ack)
