@@ -2,12 +2,28 @@
 
 import React, { useState } from "react"
 import { TextH } from "@/comps"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
 
 import FormComps from "./form"
+import { IFormSchema, defaultValues, formSchema } from "./formSchema"
 import PreviewComp from "./preview"
 
 export default function NewInvoiceClient() {
   const [isFormTab, setActiveTab] = useState<boolean>(true)
+
+  // ... // 1. Define your form.
+  const form = useForm<IFormSchema>({
+    resolver: zodResolver(formSchema),
+    defaultValues: defaultValues,
+  })
+
+  // 2. Define a submit handler.
+  function onSubmit(values: IFormSchema) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values)
+  }
 
   return (
     <div className={"w-full"}>
@@ -30,7 +46,11 @@ export default function NewInvoiceClient() {
         </div>
       </div>
       <div className={"w-full"}>
-        {isFormTab ? <FormComps /> : <PreviewComp />}
+        {isFormTab ? (
+          <FormComps form={form} onSubmit={onSubmit} />
+        ) : (
+          <PreviewComp form={form} />
+        )}
       </div>
     </div>
   )

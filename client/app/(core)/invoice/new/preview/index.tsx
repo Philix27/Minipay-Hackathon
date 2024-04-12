@@ -1,17 +1,23 @@
 import React from "react"
 import { TextB, TextH } from "@/comps"
+import { UseFormReturn } from "react-hook-form"
 
-export default function PreviewComp() {
+import { IFormSchema } from "../formSchema"
+
+export default function PreviewComp(props: {
+  form: UseFormReturn<IFormSchema>
+}) {
+  const { form } = props
   return (
     <div className={"flex flex-col items-center justify-center mt-5"}>
       <div className={"bg-amber-50 md:h-[1000px] md:w-[800px]"}>
         {/* Header */}
         <div className={"h-[70px] p-[50px] flex justify-between items-start"}>
           <TextH v="h2" className={`text-muted`}>
-            Business Name
+            {form.getValues("fromBusinessName")}
           </TextH>
           <div>
-            <TextB v="p5">27th, June 2024</TextB>
+            <TextB v="p5">{form.getValues("clientAddress")}</TextB>
           </div>
         </div>
         {/* Address */}

@@ -3,7 +3,7 @@ import { IAccordionContent, TextH } from "@/comps"
 import { UseFormReturn } from "react-hook-form"
 
 import form, { styles } from ".."
-import { IFormSchema } from "../formSchema"
+import { IFormSchema } from "../../formSchema"
 import AppInput from "../reform"
 
 export function personalInfo(props: {

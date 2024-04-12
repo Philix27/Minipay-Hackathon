@@ -1,12 +1,4 @@
 import React from "react"
-import { TextB } from "@/comps"
-import {
-  Control,
-  ControllerRenderProps,
-  FieldValues,
-  Path,
-} from "react-hook-form"
-
 import {
   FormControl,
   FormDescription,
@@ -15,7 +7,14 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from "./ui"
+  TextB,
+} from "@/comps"
+import {
+  Control,
+  ControllerRenderProps,
+  FieldValues,
+  Path,
+} from "react-hook-form"
 
 type IFormTypes = "text" | "no" | "date" | "file"
 export default function AppInput<T extends FieldValues>(props: {

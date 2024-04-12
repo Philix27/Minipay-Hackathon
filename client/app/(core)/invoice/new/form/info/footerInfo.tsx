@@ -2,7 +2,7 @@ import React from "react"
 import { IAccordionContent, TextH } from "@/comps"
 import { UseFormReturn } from "react-hook-form"
 
-import { IFormSchema } from "../formSchema"
+import { IFormSchema } from "../../formSchema"
 import form, { styles } from "../index"
 import AppInput from "../reform"
 
