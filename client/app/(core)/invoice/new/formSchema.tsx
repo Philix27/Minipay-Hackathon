@@ -1,4 +1,8 @@
-import { z } from "zod"
+import { z } from "zod";
+
+
+
+
 
 export const formSchema = z.object({
   // To
@@ -74,8 +78,6 @@ export const formSchema = z.object({
 })
 
 export const defaultValues: z.infer<typeof formSchema> = {
-  footerNote: "",
-  thanksMsg: "",
   item1_name: "",
   item1_amount: 0,
   item1_quantity: 0,
@@ -88,6 +90,8 @@ export const defaultValues: z.infer<typeof formSchema> = {
   item4_name: "",
   item4_amount: 0,
   item4_quantity: 0,
+  footerNote: "",
+  thanksMsg: "",
   toBusinessName: "",
   toEmail: "",
   fromBusinessName: "",
@@ -95,6 +99,9 @@ export const defaultValues: z.infer<typeof formSchema> = {
   fromEmail: "",
   fromDate: "",
   fromAddress: "",
+  toWebsite: "",
+  toAddress: "",
+  toPhone: "",
 }
 
 export type IFormSchema = z.infer<typeof formSchema>

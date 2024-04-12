@@ -22,7 +22,7 @@ model User {
 model Budget {
   id    String @id @default(uuid())
   title String
-  desc  Int?
+  desc  String?
 }
 
 model Invoice {
@@ -37,6 +37,9 @@ model Invoice {
   fromEmail        String
   fromDate         String
   fromAddress      String
+  toWebsite        String?
+  toAddress        String?
+  toPhone          String?
   user_id          String?
   created_at       DateTime?     @default(now())
   updated_at       DateTime?     @updatedAt

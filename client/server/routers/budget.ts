@@ -1,19 +1,19 @@
-import { publicProcedure, router } from "@/server";
-import { z } from "zod";
+import { publicProcedure, router } from "@/server"
+import { z } from "zod"
 
 export const blogRouter = router({
   get_all: publicProcedure.query(async ({ ctx }) => {
-    return await ctx.prisma.blog.findMany();
+    return await ctx.prisma.budget.findMany()
   }),
 
   delete: publicProcedure
     .input(z.object({ blog_id: z.string() }))
     .mutation(async ({ ctx, input }) => {
-      return await ctx.prisma.blog.delete({
+      return await ctx.prisma.budget.delete({
         where: {
           id: input.blog_id,
         },
-      });
+      })
     }),
 
   create: publicProcedure
@@ -26,13 +26,11 @@ export const blogRouter = router({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      return await ctx.prisma.blog.create({
+      return await ctx.prisma.budget.create({
         data: {
           title: input.title,
-          subtitle: input.subtitle,
-          img_url: input.img_url,
-          story: input.story,
+          desc: input.subtitle,
         },
-      });
+      })
     }),
-});
+})
