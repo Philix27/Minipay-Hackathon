@@ -1,8 +1,9 @@
 "use client"
 
 import React from "react"
-import { AppAccordion, Button, Form } from "@/comps"
 import { UseFormReturn } from "react-hook-form"
+
+import { AppAccordion, Button, Form } from "@/app/comps"
 
 import { IFormSchema } from "../formSchema"
 import { clientInfo, footerInfo, invoiceItems, personalInfo } from "./info"

@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react"
-import { TextH } from "@/comps"
 import { MenuIcon, SidebarClose } from "lucide-react"
+
+import { TextH } from "@/app/comps"
 
 export function Navbar(props: {
   onMenuClick: VoidFunction

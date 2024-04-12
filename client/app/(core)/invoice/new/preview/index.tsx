@@ -1,6 +1,7 @@
 import React from "react"
-import { TextB, TextH } from "@/comps"
 import { UseFormReturn } from "react-hook-form"
+
+import { TextB, TextH } from "@/app/comps"
 
 import { IFormSchema } from "../formSchema"
 

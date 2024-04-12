@@ -1,5 +1,12 @@
 import React from "react"
 import {
+  Control,
+  ControllerRenderProps,
+  FieldValues,
+  Path,
+} from "react-hook-form"
+
+import {
   FormControl,
   FormDescription,
   FormField,
@@ -8,13 +15,7 @@ import {
   FormMessage,
   Input,
   TextB,
-} from "@/comps"
-import {
-  Control,
-  ControllerRenderProps,
-  FieldValues,
-  Path,
-} from "react-hook-form"
+} from "@/app/comps"
 
 type IFormTypes = "text" | "no" | "date" | "file"
 export default function AppInput<T extends FieldValues>(props: {

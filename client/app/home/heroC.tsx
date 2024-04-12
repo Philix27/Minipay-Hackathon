@@ -1,6 +1,6 @@
 import React from "react"
 
-import { TextB, TextH } from "@/comps"
+import { TextB, TextH } from "@/app/comps"
 
 export default function HeroCenter(props: { title: string; subtitle: string }) {
   return (

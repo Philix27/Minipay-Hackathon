@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "next/image"
-import { TextB, TextH } from "@/comps"
+
+import { TextB, TextH } from "@/app/comps"
 
 export default function HeroSection(props: {
   title: string

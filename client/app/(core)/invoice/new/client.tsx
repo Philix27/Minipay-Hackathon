@@ -1,9 +1,10 @@
 "use client"
 
 import React, { useState } from "react"
-import { TextH } from "@/comps"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+
+import { TextH } from "@/app/comps"
 
 import FormComps from "./form"
 import { IFormSchema, defaultValues, formSchema } from "./formSchema"

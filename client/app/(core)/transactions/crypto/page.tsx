@@ -1,9 +1,10 @@
 "use client"
 
 import React from "react"
-import { TextH } from "@/comps"
-import * as T from "@/comps/ui/table"
 import { Table } from "lucide-react"
+
+import { TextH } from "@/app/comps"
+import * as T from "@/app/comps/ui/table"
 
 import { invoices } from "../data"
 

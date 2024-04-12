@@ -1,6 +1,6 @@
 "use client"
 
-import { ThemeToggle } from "@/comps"
+import { ThemeToggle } from "@/app/comps"
 
 import { MainNav } from "./main-nav"
 import { siteConfig } from "./site"

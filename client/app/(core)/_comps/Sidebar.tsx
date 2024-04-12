@@ -2,9 +2,10 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { TextB, TextH } from "@/comps"
 import { cn } from "@/lib"
 import { ArrowDown, ArrowUp } from "lucide-react"
+
+import { TextB, TextH } from "@/app/comps"
 
 import { ISection, data } from "./SidebarData"
 import { SidebarGroup } from "./SidebarGroup"

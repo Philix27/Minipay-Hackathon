@@ -1,6 +1,7 @@
 import React from "react"
-import { TextB, TextH } from "@/comps"
 import { AppImg } from "@/lib"
+
+import { TextB, TextH } from "@/app/comps"
 
 const cardItems = [
   {

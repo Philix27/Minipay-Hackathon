@@ -1,6 +1,7 @@
 import React from "react"
-import { TextB, TextH } from "@/comps"
 import { Github, LinkedinIcon, MailIcon } from "lucide-react"
+
+import { TextB, TextH } from "@/app/comps"
 
 export default function FooterSection() {
   return (

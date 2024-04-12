@@ -2,12 +2,12 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Icons } from "@/comps"
 import { NavItem, cn } from "@/lib"
 import { useAddress } from "@thirdweb-dev/react"
 import { ConnectButton } from "thirdweb/react"
 
 import { ThirdClient } from "@/lib/thirdweb"
+import { Icons } from "@/app/comps"
 
 import { siteConfig } from "./site"
 
