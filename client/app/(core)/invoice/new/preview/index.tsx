@@ -16,7 +16,13 @@ export default function PreviewComp(props: {
   const { form } = props
   return (
     <div className={"flex flex-col items-center justify-center mt-5"}>
-      <div className={"bg-amber-50 md:h-[1000px] md:w-[800px]"}>
+      <div
+        className={`
+          w-[90%]
+          md:w-[60%] 
+          bg-primary border-[1px] border-secondary-foreground
+        `}
+      >
         <TopBar
           bizName={form.getValues("fromBusinessName")}
           invoiceDate={form.getValues("clientAddress")}
