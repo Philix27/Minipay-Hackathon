@@ -1,6 +1,9 @@
 export class AppPages {
   static dashboard = "/dashboard"
-  static budgets = "/budgets"
+  static budgets = {
+    index: "/budgets",
+    create: "/budgets/create",
+  }
   static invoice = {
     new: "/invoice/new",
     all: "/invoice/all",

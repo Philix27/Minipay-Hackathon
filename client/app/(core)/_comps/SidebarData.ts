@@ -30,7 +30,7 @@ export const data: ISection[] = [
     group: [
       {
         name: "All",
-        link: AppPages.invoice.new,
+        link: AppPages.invoice.all,
       },
       {
         name: "Create New",
@@ -44,11 +44,11 @@ export const data: ISection[] = [
     group: [
       {
         name: "Manage",
-        link: AppPages.paymentLink,
+        link: AppPages.budgets.index,
       },
       {
         name: "Create New",
-        link: AppPages.paymentLink,
+        link: AppPages.budgets.create,
       },
     ],
   },

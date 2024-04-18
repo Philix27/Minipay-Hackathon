@@ -1,22 +1,7 @@
 pragma solidity >=0.5.0 <0.8.0;
-contract Transfer {
 
- function registerNewUser(type name) view public returns (type name) {
-    
- }   
- function getAllUsers(type name) view public returns (type name) {
-    
- }   
- function getRecords(type name) view public returns (type name) {
-    
- }   
- function transfer(type name, address from, address ) view public returns (type name) {
-    
- }   
-}
 // https://eips.ethereum.org/EIPS/eip-20
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.5.0 <0.8.0;
 
 interface Token {
 
@@ -52,3 +37,20 @@ interface Token {
     event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 }
 
+
+
+contract Transfer is Token {
+
+ function registerNewUser(type name) view public returns (type name) {
+    
+ }   
+ function getAllUsers(type name) view public returns (type name) {
+    
+ }   
+ function getRecords(type name) view public returns (type name) {
+    
+ }   
+ function transfer(type name, address from, address ) view public returns (type name) {
+    
+ }   
+}

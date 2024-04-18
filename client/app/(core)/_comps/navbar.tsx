@@ -1,5 +1,7 @@
-import React, { Dispatch, SetStateAction } from "react"
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { MenuIcon, SidebarClose } from "lucide-react"
+import { useConnect } from "wagmi"
+import { InjectedConnector } from "wagmi/connectors/injected"
 
 import { TextH } from "@/app/comps"
 
@@ -8,6 +10,18 @@ export function Navbar(props: {
   onCloseClick: VoidFunction
   isOpen: boolean
 }) {
+  const [hideConnectBtn, setHideConnectBtn] = useState(false)
+  // const { connect } = useConnect({
+  //   connector: new InjectedConnector(),
+  // })
+
+  useEffect(() => {
+    if (window.ethereum && window.ethereum.isMiniPay) {
+      setHideConnectBtn(true)
+      // connect()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   return (
     <div
       className={`
