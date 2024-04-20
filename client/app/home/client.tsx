@@ -1,10 +1,9 @@
 "use client"
 
 import React from "react"
+import { AppImg } from "@/lib"
 
-import { AppImg } from "@/lib/utils"
-
-import { NavbarHeader } from "./_comps"
+import { NavbarHeader } from "../comps/navbar"
 import CardsSection from "./cards"
 import FooterSection from "./footer"
 import HeroSection from "./hero"

@@ -18,19 +18,19 @@ interface MainNavProps {
 export function NavbarHeader({ items }: MainNavProps) {
   const { isConnected } = useAccount()
   const [hideConnectBtn, setHideConnectBtn] = useState(false)
-  const store = AppStores.useSettingsStore()
-  // useEffect(() => {
-  //   const w = window as any
-  //   if (w.ethereum && w.ethereum.isMiniPay) {
-  //     setHideConnectBtn(true)
-  //     // connect()
-  //   }
-  // }, [])
+  const { isSidebarOpen, setIsSidebarOpen } = AppStores.useSettingsStore()
+
+  useEffect(() => {
+    const w = window as any
+    if (w.ethereum && w.ethereum.isMiniPay) {
+      setHideConnectBtn(true)
+      // connect()
+    }
+  }, [])
 
   return (
     <header className="bg-secondary sticky top-0 z-40 w-full border-b">
-      <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        {/* <MainNav items={siteConfig.mainNav} /> */}
+      <div className="container flex h-[60px] items-center justify-between">
         <div className="flex gap-6 md:gap-10 ">
           <Link href="/" className="flex items-center space-x-2">
             <Icons.logo className="h-6 w-6" />
@@ -51,19 +51,42 @@ export function NavbarHeader({ items }: MainNavProps) {
             )}
           </nav>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="items-center space-x-1 md:flex">
-            <ThemeToggle />
-            <div className={"md:hidden"}>
-              {store.isSidebarOpen ? (
-                <SidebarClose onClick={store.setIsSidebarOpen(true)} />
-              ) : (
-                <MenuIcon onClick={store.setIsSidebarOpen(false)} />
-              )}
-            </div>
-          </nav>
+
+        <div className="flex items-center justify-center md:gap-x-3">
+          <div className="mr-4">
+             <ThemeToggle />
+         </div>
+
+          <div
+            className={"md:hidden"}
+            onClick={() => {
+              console.log("Hey")
+            }}
+          >
+            {isSidebarOpen ? <SidebarClose /> : <MenuIcon />}
+            {/* {isSidebarOpen ? (
+              <SidebarClose onClick={setIsSidebarOpen(true)} />
+            ) : (
+              <MenuIcon onClick={setIsSidebarOpen(false)} />
+            )} */}
+          </div>
         </div>
       </div>
     </header>
   )
 }
+
+// {
+//   isSidebarOpen ? (
+//     <SidebarClose onClick={setIsSidebarOpen(true)} />
+//   ) : (
+//     <MenuIcon />
+//   )
+// }
+// {
+//   isSidebarOpen ? (
+//     <SidebarClose onClick={store.setIsSidebarOpen(true)} />
+//   ) : (
+//     <MenuIcon onClick={store.setIsSidebarOpen(false)} />
+//   )
+// }

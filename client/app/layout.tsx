@@ -1,17 +1,12 @@
-"use client"
-
 import "@/lib/styles/globals.css"
-import { cn, fontSans, wagmiConfig } from "@/lib"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { ThemeProvider } from "next-themes"
-import { WagmiProvider } from "wagmi"
+import { cn, fontSans } from "@/lib"
 
-import { NavbarHeader } from "./home/_comps"
+import { NavbarHeader } from "./comps/navbar"
+import AppProviders from "./providers"
 
 interface RootLayoutProps {
   children: React.ReactNode
 }
-const queryClient = new QueryClient()
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
@@ -23,18 +18,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <WagmiProvider config={wagmiConfig}>
-            <QueryClientProvider client={queryClient}>
-              <div className="relative flex min-h-screen flex-col">
-                <div className="flex-1">
-                  <NavbarHeader />
-                  {children}
-                </div>
-              </div>
-            </QueryClientProvider>
-          </WagmiProvider>
-        </ThemeProvider>
+        <AppProviders>
+          <div className="relative flex min-h-screen flex-col">
+            <div className="flex-1">
+              <NavbarHeader />
+              {children}
+            </div>
+          </div>
+        </AppProviders>
       </body>
     </html>
   )

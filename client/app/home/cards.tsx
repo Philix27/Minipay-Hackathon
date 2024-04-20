@@ -1,6 +1,8 @@
-import React from "react"
+"use client"
 
-import { AppImg } from "@/lib/utils"
+import React from "react"
+import { AppImg } from "@/lib"
+
 import { TextB, TextH } from "@/app/comps"
 
 const cardItems = [

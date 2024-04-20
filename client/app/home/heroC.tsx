@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 
 import { TextB, TextH } from "@/app/comps"
@@ -24,7 +26,7 @@ export default function HeroCenter(props: { title: string; subtitle: string }) {
           {props.title}
         </TextH>
         <div className="mb-10" />
-        <div className="w-[80%]">
+        <div className="w-4/5">
           <TextB v={"p4"}>{props.subtitle}</TextB>
         </div>
       </div>

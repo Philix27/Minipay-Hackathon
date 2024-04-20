@@ -1,4 +1,4 @@
-import { AppPages } from "@/lib/utils"
+import { AppPages } from "@/lib"
 
 export type ISection = {
   title: string

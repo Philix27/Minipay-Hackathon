@@ -1,8 +1,7 @@
 import { Metadata } from "next"
 
-
+import { siteConfig } from "./comps/navbar"
 import HomeClient from "./home/client"
-import { siteConfig } from "./home/_comps"
 
 export const metadata: Metadata = {
   title: {

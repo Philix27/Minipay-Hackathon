@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import Image from "next/image"
 
@@ -21,12 +23,10 @@ export default function HeroSection(props: {
       {props.imgFirst ? (
         <>
           <div className={"flex items-center justify-center"}>
-            <Image
+            <img
               src={props.img}
               alt=""
-              width={300}
-              height={400}
-              className={"h-[350px] w-[250px] md:h-[450px] md:w-[350px]"}
+              className={"h-[300px] w-[200px] md:h-[450px] md:w-[350px]"}
             />
           </div>
           <div className="h-full flex flex-col items-start justify-center px-2 md:px-4 py-8 md:py-4">
@@ -43,12 +43,10 @@ export default function HeroSection(props: {
             <TextB v={"p4"}>{props.subtitle}</TextB>
           </div>
           <div className={"flex items-center justify-center"}>
-            <Image
+            <img
               src={props.img}
               alt=""
-              width={300}
-              height={400}
-              className={"h-[350px] w-[250px] md:h-[450px] md:w-[350px]"}
+              className={"h-[300px] w-[200px] md:h-[450px] md:w-[350px]"}
             />
           </div>
         </>
