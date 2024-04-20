@@ -27,7 +27,7 @@ function TopCard(props: {
         <TextH>{props.title}</TextH>
         {props.icon}
       </div>
-      <hr />
+      <hr className="border-secondary" />
       <div className="mt-4">
         <TextB>{props.subtitle}</TextB>
       </div>

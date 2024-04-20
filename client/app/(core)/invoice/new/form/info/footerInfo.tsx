@@ -1,9 +1,9 @@
 import React from "react"
+import { AppInput } from "@/comps"
 import { UseFormReturn } from "react-hook-form"
 
 import { IAccordionContent, TextH } from "@/app/comps"
 
-import AppInput from "../../../../../comps/forms/reform"
 import { IFormSchema } from "../../formSchema"
 import form, { styles } from "../index"
 

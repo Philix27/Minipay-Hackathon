@@ -12,7 +12,7 @@ import { Control, FieldValues, Path } from "react-hook-form"
 
 import { IFormTypes, InputSorter } from "./sorter"
 
-export default function AppInput<T extends FieldValues>(props: {
+export function AppInput<T extends FieldValues>(props: {
   control: Control<T, any>
   /** name to be used as label */
   name: Path<T>

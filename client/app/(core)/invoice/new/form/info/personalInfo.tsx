@@ -1,10 +1,8 @@
 import React from "react"
+import { AppInput, IAccordionContent, TextH } from "@/comps"
 import { UseFormReturn } from "react-hook-form"
 
-import { IAccordionContent, TextH } from "@/app/comps"
-
 import form, { styles } from ".."
-import AppInput from "../../../../../comps/forms/reform"
 import { IFormSchema } from "../../formSchema"
 
 export function personalInfo(props: {

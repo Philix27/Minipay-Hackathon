@@ -7,13 +7,13 @@ import { IBudgetCategories, budgetsList } from "./data"
 export default function Page() {
   return (
     <div className="w-full p-4">
-      <div className={"grid grid-cols-2 gap-3"}>
+      <div className={"grid grid-cols-1 md:grid-cols-3 gap-4"}>
         {budgetsList.map((value, index) => (
           <div
-            className={`p-4 rounded-2xl ${getCardProps(value.category).color}`}
+            className={`p-4 rounded-xl ${getCardProps(value.category).color}`}
             key={index}
           >
-            <div className="flex justify-between mb-2  md:flex-row flex-col-reverse">
+            <div className="flex justify-between mb-2 md:flex-row flex-col-reverse items-center">
               <div>
                 <TextH className={"text-white"} v="h5">
                   {value.title}
@@ -29,7 +29,7 @@ export default function Page() {
                 {getCardProps(value.category).icon}
               </div>
             </div>
-            <div className="flex md:flex-row flex-col justify-between">
+            <div className="flex flex-row justify-between">
               <TextB className={"text-slate-300"}>
                 Amount Saved: {value.amountSaved}
               </TextB>

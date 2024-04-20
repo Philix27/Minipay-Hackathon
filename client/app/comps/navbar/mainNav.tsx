@@ -30,11 +30,10 @@ export function NavbarHeader({ items }: MainNavProps) {
   }, [])
 
   return (
-    <header className="bg-secondary sticky top-0 z-40 w-full border-b">
+    <header className="bg-primary sticky top-0 z-40 w-full border-b">
       <div className="container flex h-[60px] items-center justify-between">
         <div className="flex gap-6 md:gap-10 ">
           <Link href="/" className="flex items-center space-x-2">
-            <Icons.logo className="h-6 w-6" />
             <span className="inline-block font-bold">{siteConfig.name}</span>
           </Link>
           <nav className="flex gap-6">

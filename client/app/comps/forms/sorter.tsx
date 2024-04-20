@@ -17,7 +17,7 @@ export function InputSorter<T extends FieldValues>(props: {
     case "text":
       return <Input placeholder={props.place} {...props.field} />
     case "no":
-      return <Input placeholder={props.place} {...props.field} />
+      return <Input type="number" placeholder={props.place} {...props.field} />
     default:
       return <Input placeholder={props.place} {...props.field} />
       break
