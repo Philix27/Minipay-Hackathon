@@ -1,16 +1,15 @@
 "use client"
 
 import "@/lib/styles/globals.css"
-import { Celo } from "@thirdweb-dev/chains"
-import { ethers } from "ethers"
+import { cn, fontSans, wagmiConfig } from "@/lib"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ThemeProvider } from "next-themes"
-import { ConnectButton, ThirdwebProvider } from "thirdweb/react"
-
-import { cn, fontSans } from "@/lib/utils"
+import { WagmiProvider } from "wagmi"
 
 interface RootLayoutProps {
   children: React.ReactNode
 }
+const queryClient = new QueryClient()
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
@@ -23,18 +22,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <ThirdwebProvider
-          // activeChain="ethereum"
-          // clientId="YOUR_CLIENT_ID"
-          // signer={new ethers.providers.Web3Provider(
-          //   window.ethereum
-          // ).getSigner()}
-          >
-            <div className="relative flex min-h-screen flex-col">
-              <div className="flex-1">{children}</div>
-            </div>
-          </ThirdwebProvider>
-          {/* <TailwindIndicator /> */}
+          <WagmiProvider config={wagmiConfig}>
+            <QueryClientProvider client={queryClient}>
+              <div className="relative flex min-h-screen flex-col">
+                <div className="flex-1">{children}</div>
+              </div>
+            </QueryClientProvider>
+          </WagmiProvider>
         </ThemeProvider>
       </body>
     </html>

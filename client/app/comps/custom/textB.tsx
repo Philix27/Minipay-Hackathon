@@ -2,7 +2,7 @@
 
 import React, { ReactNode } from "react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib"
 
 type IVariants = "p1" | "p2" | "p3" | "p4" | "p5" | "p6"
 

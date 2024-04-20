@@ -1,6 +1,6 @@
-const { getContract, formatEther, createPublicClient, http } = require("viem")
-const { celo } = require("viem/chains")
-const { stableTokenABI } = require("@celo/abis")
+import { stableTokenABI } from "@celo/abis"
+import { createPublicClient, formatEther, getContract, http } from "viem"
+import { celo } from "viem/chains"
 
 const STABLE_TOKEN_ADDRESS = "0x765DE816845861e75A25fCA122bb6898B8B1282a"
 
@@ -36,14 +36,18 @@ export class CeloTools {
     return receipt.status === "success"
   }
 
-  async estimateGas_cUsd(publicClient: any, transaction: any, feeCurrency = "") {
+  async estimateGas_cUsd(
+    publicClient: any,
+    transaction: any,
+    feeCurrency = ""
+  ) {
     return await publicClient.estimateGas({
       ...transaction,
       feeCurrency: feeCurrency ? feeCurrency : "",
     })
   }
 
-  async estimateGasPrice_celo(publicClient:any, feeCurrency = "") {
+  async estimateGasPrice_celo(publicClient: any, feeCurrency = "") {
     return await publicClient.request({
       method: "eth_gasPrice",
       params: feeCurrency ? [feeCurrency] : [],
