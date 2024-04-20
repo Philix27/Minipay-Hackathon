@@ -1,7 +1,8 @@
 "use client"
 
-import { cn } from "@/lib"
 import { motion } from "framer-motion"
+
+import { cn } from "@/lib/utils"
 
 import { data } from "./SidebarData"
 import { SidebarGroup } from "./SidebarGroup"

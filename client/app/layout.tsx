@@ -1,11 +1,12 @@
 "use client"
 
 import "@/lib/styles/globals.css"
-import { cn, fontSans } from "@/lib"
 import { Celo } from "@thirdweb-dev/chains"
 import { ethers } from "ethers"
 import { ThemeProvider } from "next-themes"
 import { ConnectButton, ThirdwebProvider } from "thirdweb/react"
+
+import { cn, fontSans } from "@/lib/utils"
 
 interface RootLayoutProps {
   children: React.ReactNode

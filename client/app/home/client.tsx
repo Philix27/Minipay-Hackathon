@@ -1,7 +1,8 @@
 "use client"
 
 import React from "react"
-import { AppImg } from "@/lib"
+
+import { AppImg } from "@/lib/utils"
 
 import { SiteHeader } from "./_comps"
 import CardsSection from "./cards"

@@ -1,7 +1,8 @@
 "use client"
 
 import React, { ReactNode } from "react"
-import { cn } from "@/lib"
+
+import { cn } from "@/lib/utils"
 
 type IVariants = "p1" | "p2" | "p3" | "p4" | "p5" | "p6"
 

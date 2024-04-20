@@ -2,11 +2,11 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { NavItem, cn } from "@/lib"
 import { useAddress } from "@thirdweb-dev/react"
 import { ConnectButton } from "thirdweb/react"
 
-import { ThirdClient } from "@/lib/thirdweb"
+import { ThirdClient } from "@/lib/chain"
+import { NavItem, cn } from "@/lib/utils"
 import { Icons } from "@/app/comps"
 
 import { siteConfig } from "./site"
