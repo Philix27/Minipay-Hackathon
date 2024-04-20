@@ -1,3 +1,2 @@
-export * from "./main-nav"
-export * from "./site-header"
+export * from "./mainNav"
 export * from "./site"

@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ThemeProvider } from "next-themes"
 import { WagmiProvider } from "wagmi"
 
+import { NavbarHeader } from "./home/_comps"
+
 interface RootLayoutProps {
   children: React.ReactNode
 }
@@ -25,7 +27,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <WagmiProvider config={wagmiConfig}>
             <QueryClientProvider client={queryClient}>
               <div className="relative flex min-h-screen flex-col">
-                <div className="flex-1">{children}</div>
+                <div className="flex-1">
+                  <NavbarHeader />
+                  {children}
+                </div>
               </div>
             </QueryClientProvider>
           </WagmiProvider>

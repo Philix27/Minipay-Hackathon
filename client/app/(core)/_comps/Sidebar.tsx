@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { ArrowDown, ArrowUp } from "lucide-react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib"
 import { TextB, TextH } from "@/app/comps"
 
 import { ISection, data } from "./SidebarData"
@@ -19,7 +19,7 @@ export function Sidebar(props: { className?: string }) {
         border-r-2 border-secondary`,
         props.className
       )}
-      style={{ height: "calc(100vh - 70px)" }}
+      style={{ height: "calc(100vh - 50px)" }}
     >
       {data.map((item, i) => (
         <div key={i}>

@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import { AppStores } from "@/lib"
 
-import { Navbar, Sidebar } from "./_comps"
+import {  Sidebar } from "./_comps"
 import { SidebarMobile } from "./_comps/SidebarMobile"
 
 interface RootLayoutProps {
@@ -10,17 +11,17 @@ interface RootLayoutProps {
 }
 
 export default function ProtectedLayout({ children }: RootLayoutProps) {
-  const [openNav, setOpenNav] = useState(false)
+  const store = AppStores.useSettingsStore()
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar
+      {/* <Navbar
         onMenuClick={() => setOpenNav(true)}
         isOpen={openNav}
         onCloseClick={() => setOpenNav(false)}
-      />
-      <div className="flex h-full mt-[70px]">
-        {openNav && <SidebarMobile />}
+      /> */}
+      <div className="flex h-full mt-[50px]">
+        {store.isSidebarOpen && <SidebarMobile />}
         <Sidebar />
         {/* <SidebarMobile className={` ${openNav && "hidden md:block"}`} /> */}
 

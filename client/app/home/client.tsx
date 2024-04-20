@@ -4,7 +4,7 @@ import React from "react"
 
 import { AppImg } from "@/lib/utils"
 
-import { SiteHeader } from "./_comps"
+import { NavbarHeader } from "./_comps"
 import CardsSection from "./cards"
 import FooterSection from "./footer"
 import HeroSection from "./hero"
@@ -14,7 +14,6 @@ import JumbutronSection from "./jumbutron"
 export default function HomeClient() {
   return (
     <div>
-      <SiteHeader />
       <section className="container flex flex-col items-center gap-6 pb-8 pt-6 md:py-10 w-full">
         <HeroCenter
           title={"Budget & Invoice manager"}
