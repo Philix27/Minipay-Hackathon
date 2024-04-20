@@ -1,20 +1,18 @@
+import { Alfajores, Celo } from "@celo/rainbowkit-celo/chains"
+import celoGroups from "@celo/rainbowkit-celo/lists"
 import { createConfig, http } from "wagmi"
-import { mainnet, sepolia } from "wagmi/chains"
+import { celo, celoAlfajores } from "wagmi/chains"
 
-declare module "wagmi" {
-  interface Register {
-    config: typeof wagmiConfig
-  }
-
-  interface window {
-    ethereum: any
-  }
-}
+// declare module "wagmi" {
+//   interface Register {
+//     config: typeof wagmiConfig
+//   }
+// }
 
 export const wagmiConfig = createConfig({
-  chains: [mainnet, sepolia],
+  chains: [celoAlfajores, celo],
   transports: {
-    [mainnet.id]: http(),
-    [sepolia.id]: http(),
+    [celo.id]: http(),
+    [celoAlfajores.id]: http(),
   },
 })

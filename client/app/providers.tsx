@@ -12,9 +12,9 @@ export default function AppProviders(props: { children: ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <WagmiProvider config={wagmiConfig}>
-        <QueryClientProvider client={queryClient}>
-          {props.children}
-        </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        {props.children}
+      </QueryClientProvider>
       </WagmiProvider>
     </ThemeProvider>
   )

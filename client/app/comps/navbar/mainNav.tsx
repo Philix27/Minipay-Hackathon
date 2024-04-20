@@ -10,6 +10,7 @@ import { useAccount, useConnect, useEnsName } from "wagmi"
 import { ThemeToggle } from "@/app/comps"
 
 import { siteConfig } from "./site"
+import { useSettingsStore } from "@/lib/zustand/settings"
 
 interface MainNavProps {
   items?: NavItem[]
@@ -18,7 +19,7 @@ interface MainNavProps {
 export function NavbarHeader({ items }: MainNavProps) {
   const { isConnected } = useAccount()
   const [hideConnectBtn, setHideConnectBtn] = useState(false)
-  const { isSidebarOpen, setIsSidebarOpen } = AppStores.useSettingsStore()
+  const { isSidebarOpen, setIsSidebarOpen } = useSettingsStore()
 
   useEffect(() => {
     const w = window as any

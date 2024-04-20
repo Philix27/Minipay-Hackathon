@@ -2,6 +2,7 @@ import React from "react"
 import { UseFormReturn } from "react-hook-form"
 
 import { IAccordionContent, TextH } from "@/app/comps"
+
 import AppInput from "../../../../../comps/forms/reform"
 import { IFormSchema } from "../../formSchema"
 
@@ -13,7 +14,7 @@ export function clientInfo(props: {
     value: "item2",
     title: (
       <div className={"w-full bg-primary py-2"}>
-        <TextH v="h5">Client's Info</TextH>
+        <TextH v="h5">{`Client's Info`}</TextH>
       </div>
     ),
     content: (
