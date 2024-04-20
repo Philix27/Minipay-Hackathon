@@ -15,9 +15,17 @@ export default function Page() {
           >
             <div className="flex justify-between mb-2  md:flex-row flex-col-reverse">
               <div>
-                <TextH className={"text-white"} v="h5">{value.title}</TextH>
+                <TextH className={"text-white"} v="h5">
+                  {value.title}
+                </TextH>
               </div>
-              <div className="w-[40px] h-[40px] bg-primary rounded-[25px] flex items-center justify-center">
+              <div
+                className={`
+                w-[40px] h-[40px] bg-primary 
+                rounded-[25px] flex items-center 
+                justify-center
+              `}
+              >
                 {getCardProps(value.category).icon}
               </div>
             </div>
