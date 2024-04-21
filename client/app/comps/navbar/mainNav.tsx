@@ -5,19 +5,17 @@ import Link from "next/link"
 import { Button, Icons } from "@/comps"
 import { AppStores, NavItem, cn } from "@/lib"
 import { MenuIcon, SidebarClose } from "lucide-react"
-import { useAccount, useConnect, useEnsName } from "wagmi"
 
+import { useSettingsStore } from "@/lib/zustand/settings"
 import { ThemeToggle } from "@/app/comps"
 
 import { siteConfig } from "./site"
-import { useSettingsStore } from "@/lib/zustand/settings"
 
 interface MainNavProps {
   items?: NavItem[]
 }
 
 export function NavbarHeader({ items }: MainNavProps) {
-  const { isConnected } = useAccount()
   const [hideConnectBtn, setHideConnectBtn] = useState(false)
   const { isSidebarOpen, setIsSidebarOpen } = useSettingsStore()
 
@@ -37,7 +35,7 @@ export function NavbarHeader({ items }: MainNavProps) {
             <span className="inline-block font-bold">{siteConfig.name}</span>
           </Link>
           <nav className="flex gap-6">
-            {isConnected ? (
+            {/* {isConnected ? (
               <Link
                 href={"/dashboard"}
                 className={cn(
@@ -48,14 +46,14 @@ export function NavbarHeader({ items }: MainNavProps) {
               </Link>
             ) : (
               <Button>Connect</Button>
-            )}
+            )} */}
           </nav>
         </div>
 
         <div className="flex items-center justify-center md:gap-x-3">
           <div className="mr-4">
-             <ThemeToggle />
-         </div>
+            <ThemeToggle />
+          </div>
 
           <div
             className={"md:hidden"}

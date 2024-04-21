@@ -71,3 +71,12 @@ This project was made using Next.js for the frontend and Trpc + Prisma + Postgre
 - Github link
 - Video link
 - Vercel link
+
+
+Problem
+
+Buying of digital goods has always been a challenge especially for third world countries where
+there is inadequate access to technology required to make purchase seamless.
+
+But with the aid of Bookton on minipay users can easily buy pdfs and other digital products easily with 
+crypto wallets built into the browser.

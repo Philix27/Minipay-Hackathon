@@ -14,6 +14,7 @@ const cNames: Record<IVariants, string> = {
   h5: "text-sm font-bold leading-relaxed tracking-tighter",
   h6: "text-xs font-medium leading-loose tracking-tighter ",
 }
+
 export function TextH(props: {
   children: ReactNode
   v?: IVariants
