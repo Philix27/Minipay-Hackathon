@@ -1,22 +1,28 @@
-# next-template
+# Xpensa
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
 
-## Usage
+## Problem
 
-```bash
-npx create-next-app -e https://github.com/shadcn/next-template
-```
+## Solution
 
-## Features
+## Tools
 
-- Next.js 13 App Directory
-- Radix UI Primitives
-- Tailwind CSS
-- Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
-- Tailwind CSS class sorting, merging and linting.
+## Methodology
 
-## License
+## Challenges faced
 
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+## Description
+
+## Short description
+
+## How it was made
+
+## Frameworks used
+
+## Screenshots
+
+## Links
+
+- Github link
+- Video link
+- Vercel link
