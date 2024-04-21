@@ -23,6 +23,7 @@ model Budget {
   id    String @id @default(uuid())
   title String
   desc  String?
+  category  String
 }
 
 model Invoice {

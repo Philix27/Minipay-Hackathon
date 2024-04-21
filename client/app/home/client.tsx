@@ -3,7 +3,6 @@
 import React from "react"
 import { AppImg } from "@/lib"
 
-import { NavbarHeader } from "../comps/navbar"
 import CardsSection from "./cards"
 import FooterSection from "./footer"
 import HeroSection from "./hero"
@@ -15,8 +14,8 @@ export default function HomeClient() {
     <div>
       <section className="container flex flex-col items-center gap-6 pb-8 pt-6 md:py-10 w-full">
         <HeroCenter
-          title={"Budget & Invoice manager"}
-          subtitle={`Create and manage all your cryptocurrency based expenses. Send and track invoices.`}
+          title={"Manage all your expenses in one place"}
+          subtitle={`Create budgets, invoices, payment-links and all you need to handle your day to day expenses and financial records.`}
         />
         <HeroSection
           img={AppImg.chain}

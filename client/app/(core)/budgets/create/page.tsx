@@ -60,7 +60,7 @@ export default function Page() {
                 name="category"
                 className={`
                 w-full bg-secondary border-primary outline-primary
-                p-2 my-2
+                p-2 my-2 border-2 rounded-md
               `}
                 onChange={(e) => {
                   setCategory(e.target.value as IBudgetCategories)
@@ -72,7 +72,7 @@ export default function Page() {
                 <option value={"Tech"}>Tech</option>
                 <option value={"Spiritual"}>Spiritual</option>
               </select>
-              <Button type="submit">Submit</Button>
+              <Button variant={"default"} type="submit">Submit</Button>
             </div>
           </form>
         </Form>

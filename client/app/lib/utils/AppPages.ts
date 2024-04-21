@@ -6,7 +6,7 @@ export class AppPages {
   }
   static invoice = {
     new: "/invoice/new",
-    all: "/invoice/all",
+    all: "/invoice",
   }
   static paymentLink = "/payment-links"
   static transactions = "/transactions"
