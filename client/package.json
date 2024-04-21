@@ -51,7 +51,6 @@
     "superjson": "^2.2.1",
     "tailwind-merge": "^1.13.2",
     "tailwindcss-animate": "^1.0.6",
-    "wagmi": "^2.5.20",
     "zod": "^3.22.4",
     "zustand": "^4.5.2"
   },
