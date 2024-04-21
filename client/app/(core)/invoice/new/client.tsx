@@ -50,7 +50,22 @@ export default function NewInvoiceClient() {
         {isFormTab ? (
           <FormComps form={form} onSubmit={onSubmit} />
         ) : (
-          <PreviewComp form={form} />
+          <PreviewComp
+            fromAddress={form.getValues("fromAddress")}
+            fromEmail={form.getValues("fromEmail")}
+            fromPhone={form.getValues("fromPhone")}
+            toAddress={form.getValues("toAddress") || ""}
+            toPhone={form.getValues("toPhone") || ""}
+            toEmail={form.getValues("toEmail")}
+            toWebsite={form.getValues("toWebsite") || ""}
+            toBizName={form.getValues("toBusinessName") || ""}
+            fromDate={form.getValues("fromDate")}
+            bizName={form.getValues("fromBusinessName")}
+            total={"12"}
+            subtotal={"23.90"}
+            tax={"256%"}
+            discount={"278"}
+          />
         )}
       </div>
     </div>

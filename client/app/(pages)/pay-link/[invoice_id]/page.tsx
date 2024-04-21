@@ -1,3 +1,5 @@
+"use client"
+
 import InvoicePay from "./invoicePay"
 
 export default function PaymentLinkPage(props: {

@@ -3,11 +3,20 @@ import { z } from "zod"
 
 export const invoiceRouter = router({
   get_all: publicProcedure
-    .input(z.object({ user_id: z.string() }))
+    .input(z.object({ id: z.string() }))
     .query(async ({ ctx, input }) => {
       return await ctx.prisma.invoice.findMany({
         where: {
-          user_id: input.user_id,
+          user_id: input.id,
+        },
+      })
+    }),
+  get_one: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ ctx, input }) => {
+      return await ctx.prisma.invoice.findFirst({
+        where: {
+          user_id: input.id,
         },
       })
     }),
@@ -57,6 +66,10 @@ export const invoiceRouter = router({
         thanksMsg: z.string().min(6, {
           message: "Username must be at least 6 characters.",
         }),
+        total: z.number(),
+        subtotal: z.number(),
+        tax: z.number().optional(),
+        discount: z.number().optional(),
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -73,7 +86,11 @@ export const invoiceRouter = router({
           toPhone: input.toPhone,
           footerNote: input.footerNote,
           thanksMsg: input.thanksMsg,
-          // items: []
+          toWebsite: input.toWebsite,
+          total: input.total,
+          subtotal: input.subtotal,
+          tax: input.tax,
+          discount: input.discount,
         },
       })
     }),

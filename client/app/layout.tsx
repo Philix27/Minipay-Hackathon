@@ -1,8 +1,7 @@
 import "@/lib/styles/globals.css"
-import { cn, fontSans } from "@/lib"
+import { AppProviders, cn, fontSans } from "@/lib"
 
 import { NavbarHeader } from "./comps/navbar"
-import AppProviders from "./providers"
 
 interface RootLayoutProps {
   children: React.ReactNode

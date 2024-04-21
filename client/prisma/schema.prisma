@@ -20,10 +20,10 @@ model User {
 }
 
 model Budget {
-  id    String @id @default(uuid())
-  title String
-  desc  String?
-  category  String
+  id       String  @id @default(uuid())
+  title    String
+  desc     String?
+  category String
 }
 
 model Invoice {
@@ -42,6 +42,10 @@ model Invoice {
   toAddress        String?
   toPhone          String?
   user_id          String?
+  total            Float
+  subtotal         Float
+  tax              Float?
+  discount         Float?
   created_at       DateTime?     @default(now())
   updated_at       DateTime?     @updatedAt
   user             User?         @relation(fields: [user_id], references: [id])

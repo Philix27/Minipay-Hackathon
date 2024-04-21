@@ -8,10 +8,22 @@ import { ItemsBar } from "./itemsBar"
 import { TopBar } from "./topBar"
 import { TotalBar } from "./totalBar"
 
-export default function PreviewComp(props: {
-  form: UseFormReturn<IFormSchema>
+export default function InvoicePreview(props: {
+  fromAddress: string
+  fromPhone: string
+  fromEmail: string
+  toAddress: string
+  toPhone: string
+  toEmail: string
+  toWebsite: string
+  toBizName: string
+  fromDate: string
+  bizName: string
+  total: string
+  subtotal: string
+  tax: string
+  discount: string
 }) {
-  const { form } = props
   return (
     <div className={"flex flex-col items-center justify-center my-5"}>
       <div
@@ -21,26 +33,23 @@ export default function PreviewComp(props: {
           bg-primary border-[1px] border-secondary-foreground
         `}
       >
-        <TopBar
-          bizName={form.getValues("fromBusinessName")}
-          invoiceDate={form.getValues("fromDate")}
-        />
+        <TopBar bizName={props.bizName} invoiceDate={props.fromDate} />
         <AddressBar
-          fromAddress={form.getValues("fromAddress")}
-          fromEmail={form.getValues("fromEmail")}
-          fromPhone={form.getValues("fromPhone")}
-          toAddress={form.getValues("toAddress") || ""}
-          toPhone={form.getValues("toPhone") || ""}
-          toEmail={form.getValues("toEmail")}
-          toWebsite={form.getValues("toWebsite") || ""}
-          toBizName={form.getValues("toBusinessName") || ""}
+          fromAddress={props.fromAddress}
+          fromEmail={props.fromEmail}
+          fromPhone={props.fromPhone}
+          toAddress={props.toAddress}
+          toPhone={props.toPhone}
+          toEmail={props.toEmail}
+          toWebsite={props.toWebsite}
+          toBizName={props.bizName}
         />
         <ItemsBar />
         <TotalBar
-          total={"12"}
-          subtotal={"23.90"}
-          tax={"256%"}
-          discount={"278"}
+          total={props.total}
+          subtotal={props.subtotal}
+          tax={props.tax}
+          discount={props.discount}
         />
         <FooterBar />
       </div>
