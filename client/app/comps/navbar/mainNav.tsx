@@ -58,13 +58,13 @@ export function NavbarHeader({ items }: MainNavProps) {
             {isSidebarOpen ? (
               <SidebarClose
                 onClick={() => {
-                  setIsSidebarOpen(!isSidebarOpen)
+                  setIsSidebarOpen(false)
                 }}
               />
             ) : (
               <MenuIcon
                 onClick={() => {
-                  setIsSidebarOpen(!isSidebarOpen)
+                  setIsSidebarOpen(true)
                 }}
               />
             )}

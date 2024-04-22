@@ -43,7 +43,7 @@ export default function InvoicePay(props: { invoiceId: string }) {
   return (
     <div className="flex items-center justify-center flex-col">
       <InvoicePreview
-        fromAddress={invoice.fromAddress}
+        fromAddress={invoice.fromAddress || ""}
         fromPhone={invoice.fromPhone}
         fromEmail={invoice.fromEmail}
         toAddress={invoice.toAddress!}

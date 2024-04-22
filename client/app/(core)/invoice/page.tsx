@@ -16,7 +16,7 @@ export default function Page() {
       }
     >
       <div className={"w-[80%] h-full"}>
-        <TextH v="h3"> Crypto Header</TextH>
+        <TextH v="h3"> All invoices</TextH>
         <T.Table>
           <T.TableCaption>A list of your recent invoices.</T.TableCaption>
           <T.TableHeader>

@@ -1,10 +1,12 @@
 "use client"
 
 import React, { useState } from "react"
+import { trpc } from "@/lib"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { Toaster, toast } from "sonner"
 
-import { TextH } from "@/app/comps"
+import { Button, TextH } from "@/app/comps"
 
 import FormComps from "./form"
 import { IFormSchema, defaultValues, formSchema } from "./formSchema"
@@ -12,7 +14,7 @@ import PreviewComp from "./preview"
 
 export default function NewInvoiceClient() {
   const [isFormTab, setActiveTab] = useState<boolean>(true)
-
+  const t = trpc.invoice.create.useMutation()
   // ... // 1. Define your form.
   const form = useForm<IFormSchema>({
     resolver: zodResolver(formSchema),
@@ -20,10 +22,23 @@ export default function NewInvoiceClient() {
   })
 
   // 2. Define a submit handler.
-  function onSubmit(values: IFormSchema) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+  function onSubmit() {
+    console.log("Submit clicked")
+
+    t.mutateAsync({
+      toBusinessName: form.getValues("toBusinessName"),
+      toEmail: form.getValues("toEmail"),
+      fromBusinessName: form.getValues("fromBusinessName"),
+      fromPhone: form.getValues("fromPhone"),
+      fromEmail: form.getValues("fromEmail"),
+      fromDate: form.getValues("fromDate"),
+      fromAddress: form.getValues("fromAddress"),
+      footerNote: form.getValues("footerNote"),
+      thanksMsg: form.getValues("thanksMsg"),
+      total: 2,
+      subtotal: 0,
+    })
+    toast("Invoice created")
   }
 
   return (
@@ -48,7 +63,17 @@ export default function NewInvoiceClient() {
       </div>
       <div className={"w-full"}>
         {isFormTab ? (
-          <FormComps form={form} onSubmit={onSubmit} />
+          <div className="flex flex-col items-center">
+            <FormComps form={form} onSubmit={onSubmit} />
+            <Button
+              type="submit"
+              onClick={() => {
+                onSubmit()
+              }}
+            >
+              Submit
+            </Button>
+          </div>
         ) : (
           <PreviewComp
             fromAddress={form.getValues("fromAddress")}

@@ -9,7 +9,7 @@ import React, {
 } from "react"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ThemeProvider } from "next-themes"
-
+import { Toaster } from "sonner"
 import { TrpcProvider } from "./trpcProvider"
 
 const queryClient = new QueryClient()
@@ -29,6 +29,7 @@ export function AppProviders(props: { children: ReactNode }) {
         <TrpcProvider>
           <SettingsContext.Provider value={{ isOpen, setOpen }}>
             {props.children}
+            <Toaster className={"bg-primary"} />
           </SettingsContext.Provider>
         </TrpcProvider>
       </QueryClientProvider>
