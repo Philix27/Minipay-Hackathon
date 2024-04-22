@@ -1,4 +1,5 @@
 import "@/lib/styles/globals.css"
+import "@rainbow-me/rainbowkit/styles.css"
 import { AppProviders, cn, fontSans } from "@/lib"
 
 import { NavbarHeader } from "./comps/navbar"

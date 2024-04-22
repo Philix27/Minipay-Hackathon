@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { trpc } from "@/lib"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Toaster, toast } from "sonner"
+import { toast } from "sonner"
 
 import { Button, TextH } from "@/app/comps"
 

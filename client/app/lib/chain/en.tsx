@@ -3,11 +3,11 @@ import { BrowserProvider, Contract, parseEther } from "ethers"
 
 import { contractAbi, contractAddress } from "./abi"
 
-declare global {
-  interface Window {
-    ethereum?: MetaMaskInpageProvider
-  }
-}
+// declare global {
+//   interface Window {
+//     ethereum?: MetaMaskInpageProvider
+//   }
+// }
 
 export class SmartContract {
   abi = contractAbi
