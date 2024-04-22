@@ -34,6 +34,7 @@ export const invoiceRouter = router({
   create: publicProcedure
     .input(
       z.object({
+        ownerWalletAddress: z.string(),
         toBusinessName: z.string(),
         toWebsite: z.string().optional(),
         toAddress: z.string().optional(),
@@ -57,6 +58,7 @@ export const invoiceRouter = router({
     .mutation(async ({ ctx, input }) => {
       return await ctx.prisma.invoice.create({
         data: {
+          ownerWalletAddress: input.ownerWalletAddress!,
           fromAddress: input.fromAddress!,
           fromBusinessName: input.fromBusinessName!,
           fromDate: input.fromDate!,

@@ -4,28 +4,16 @@ import React from "react"
 import InvoicePreview from "@/(core)/invoice/new/preview"
 import { Button } from "@/comps"
 import { trpc } from "@/lib"
+import { useReadContract } from "wagmi"
 
 import { SmartContract } from "@/lib/chain/en"
+
+import { Pay } from "./payBtn"
 
 export default function InvoicePay(props: { invoiceId: string }) {
   const { isLoading, data: invoice } = trpc.invoice.get_one.useQuery({
     id: props.invoiceId,
   })
-
-  const onSubmit = () => {
-    const c = new SmartContract()
-    console.log("tester")
-    try {
-      c.payInvoice(
-        "0x7054b457f55dc0D47725bdeeB98eddE543eC448D",
-        1,
-        "testInvoicer"
-      )
-      console.log("Sent successfully")
-    } catch (err) {
-      console.log("Oops an error occurred")
-    }
-  }
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -33,9 +21,7 @@ export default function InvoicePay(props: { invoiceId: string }) {
   if (!invoice) {
     return (
       <div>
-        <Button type="submit" onClick={onSubmit}>
-          Submit
-        </Button>
+        <div>Mo invoice found...</div>
       </div>
     )
   }
@@ -58,9 +44,7 @@ export default function InvoicePay(props: { invoiceId: string }) {
         tax={invoice.tax!.toString()}
         discount={invoice.discount!.toString()}
       />
-      <Button type="submit" onClick={onSubmit}>
-        Submit
-      </Button>
+      <Pay invoiceId={invoice.id} currentUserWalletAddress={""} />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { Suspense, useState } from "react"
 import { trpc } from "@/lib"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -15,6 +15,7 @@ import PreviewComp from "./preview"
 export default function NewInvoiceClient() {
   const [isFormTab, setActiveTab] = useState<boolean>(true)
   const t = trpc.invoice.create.useMutation()
+
   // ... // 1. Define your form.
   const form = useForm<IFormSchema>({
     resolver: zodResolver(formSchema),
@@ -26,6 +27,7 @@ export default function NewInvoiceClient() {
     console.log("Submit clicked")
 
     t.mutateAsync({
+      ownerWalletAddress: "",
       toBusinessName: form.getValues("toBusinessName"),
       toEmail: form.getValues("toEmail"),
       fromBusinessName: form.getValues("fromBusinessName"),
@@ -61,6 +63,7 @@ export default function NewInvoiceClient() {
           <TextH v="h5">Preview</TextH>
         </div>
       </div>
+
       <div className={"w-full"}>
         {isFormTab ? (
           <div className="flex flex-col items-center">

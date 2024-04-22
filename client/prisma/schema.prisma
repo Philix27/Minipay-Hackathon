@@ -27,29 +27,30 @@ model Budget {
 }
 
 model Invoice {
-  id               String        @id @default(uuid())
-  invoice_id       String?
-  footerNote       String
-  thanksMsg        String
-  toBusinessName   String
-  toEmail          String
-  fromBusinessName String
-  fromPhone        String
-  fromEmail        String
-  fromDate         String
-  fromAddress      String
-  toWebsite        String?
-  toAddress        String?
-  toPhone          String?
-  user_id          String?
-  total            Float
-  subtotal         Float
-  tax              Float?
-  discount         Float?
-  created_at       DateTime?     @default(now())
-  updated_at       DateTime?     @updatedAt
-  user             User?         @relation(fields: [user_id], references: [id])
-  items            InvoiceItem[]
+  id                 String        @id @default(uuid())
+  invoice_id         String?
+  ownerWalletAddress String
+  footerNote         String
+  thanksMsg          String
+  toBusinessName     String
+  toEmail            String
+  fromBusinessName   String
+  fromPhone          String
+  fromEmail          String
+  fromDate           String
+  fromAddress        String
+  toWebsite          String?
+  toAddress          String?
+  toPhone            String?
+  user_id            String?
+  total              Float
+  subtotal           Float
+  tax                Float?
+  discount           Float?
+  created_at         DateTime?     @default(now())
+  updated_at         DateTime?     @updatedAt
+  user               User?         @relation(fields: [user_id], references: [id])
+  items              InvoiceItem[]
 }
 
 model InvoiceItem {

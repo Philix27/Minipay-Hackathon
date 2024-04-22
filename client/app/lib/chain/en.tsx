@@ -11,10 +11,11 @@ import { contractAbi, contractAddress } from "./abi"
 
 export class SmartContract {
   abi = contractAbi
-  contractAddress = contractAddress
+  contractAddress = "0x9C1696935C31Ff9aeDF1BdFDd82911b954B9818A"
+  cUsdTokenAddress = "765DE816845861e75A25fCA122bb6898B8B1282a"
   static gasLimit = parseInt("600000")
 
-  async getContract(): Promise<Contract | undefined> {
+  private async getContract(): Promise<Contract | undefined> {
     if (!window.ethereum) return
 
     let accounts: any = await window.ethereum.request({
@@ -28,6 +29,16 @@ export class SmartContract {
     const contract = new Contract(contractAddress, contractAbi, signer)
 
     return contract
+  }
+
+  public async getAccount(): Promise<string> {
+    if (!window.ethereum) throw new Error("")
+
+    let accounts: any = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    })
+
+    return accounts[0].toString()
   }
 
   async payInvoice(invoiceOwner: string, amount: number, invoiceId: string) {
