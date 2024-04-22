@@ -16,8 +16,8 @@ export default function ProtectedLayout({ children }: RootLayoutProps) {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex h-full">
-        {store.isSidebarOpen && <SidebarMobile />}
-        <Sidebar />
+        {store.isSidebarOpen ? <SidebarMobile /> : <Sidebar />}
+
         {/* <SidebarMobile className={` ${openNav && "hidden md:block"}`} /> */}
 
         {children}

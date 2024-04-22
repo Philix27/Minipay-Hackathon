@@ -9,17 +9,17 @@ const cardItems = [
   {
     title: "Funds",
     img: AppImg.person,
-    subtitle: "Manage funds and finances",
+    subtitle: "Manage personal funds and finances in one place",
   },
   {
     title: "Security",
     img: AppImg.lock,
-    subtitle: "All transactions are secure",
+    subtitle: "All transactions are tightly secured and processed by Celo Blockchain",
   },
   {
     title: "Friends",
     img: AppImg.phone,
-    subtitle: "Share funds between other friends and family",
+    subtitle: "Easily pay utility bills for friends and family with payment link",
   },
 ]
 export default function CardsSection() {

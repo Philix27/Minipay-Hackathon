@@ -6,7 +6,15 @@ export type ISlice = {
   setIsSidebarOpen: (val: boolean) => void
 }
 
-export const useSettingsStore = create<ISlice>((set) => ({
-  isSidebarOpen: false,
-  setIsSidebarOpen: (val) => set((state) => ({ isSidebarOpen: val })),
-}))
+export const useSettingsStore = create(
+  persist<ISlice>(
+    (set) => ({
+      isSidebarOpen: false,
+      setIsSidebarOpen: (val) => set((state) => ({ isSidebarOpen: val })),
+    }),
+    {
+      name: "settings",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+)

@@ -42,7 +42,7 @@ export default function InvoicePreview(props: {
           toPhone={props.toPhone}
           toEmail={props.toEmail}
           toWebsite={props.toWebsite}
-          toBizName={props.bizName}
+          toBizName={props.toBizName}
         />
         <ItemsBar />
         <TotalBar

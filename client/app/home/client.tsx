@@ -24,20 +24,19 @@ export default function HomeClient() {
         />
         <JumbutronSection
           title={
-            "Beautifully designed components built with Radix UI and Tailwind CSS."
+            "Generate Payment link to send to your client."
           }
-          subtitle="Beautifully designed components built with Radix UI and Tailwind CSS."
+          subtitle="Once generated payments link can easily be shared or sent to your client"
         />
         <HeroSection
           imgFirst
           img={AppImg.invoice}
           title={"Invoice management"}
-          subtitle={`Accessible and customizable components that you can copy and paste
-          into your apps. Free. Open Source. And Next.js 13 Ready.`}
+          subtitle={`Create invoice and manage all your invoices from one place`}
         />
         <JumbutronSection
           title={""}
-          subtitle="Beautifully designed components built with Radix UI and Tailwind CSS."
+          subtitle="Managing of personal finance has never been this easy."
         />
         <CardsSection />
         <JumbutronSection

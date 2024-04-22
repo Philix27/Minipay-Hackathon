@@ -1,12 +1,11 @@
 "use client"
 
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button, Icons } from "@/comps"
-import { AppStores, NavItem, cn } from "@/lib"
+import { AppStores, NavItem, SettingsContext, cn } from "@/lib"
 import { MenuIcon, SidebarClose } from "lucide-react"
 
-import { useSettingsStore } from "@/lib/zustand/settings"
 import { ThemeToggle } from "@/app/comps"
 
 import { siteConfig } from "./site"
@@ -17,7 +16,8 @@ interface MainNavProps {
 
 export function NavbarHeader({ items }: MainNavProps) {
   const [hideConnectBtn, setHideConnectBtn] = useState(false)
-  const { isSidebarOpen, setIsSidebarOpen } = useSettingsStore()
+  const { isSidebarOpen, setIsSidebarOpen } = AppStores.useSettingsStore()
+  // const settings = useContext(SettingsContext)
 
   useEffect(() => {
     const w = window as any
@@ -35,7 +35,7 @@ export function NavbarHeader({ items }: MainNavProps) {
             <span className="inline-block font-bold">{siteConfig.name}</span>
           </Link>
           <nav className="flex gap-6">
-            {/* {isConnected ? (
+            {hideConnectBtn ? (
               <Link
                 href={"/dashboard"}
                 className={cn(
@@ -46,7 +46,7 @@ export function NavbarHeader({ items }: MainNavProps) {
               </Link>
             ) : (
               <Button>Connect</Button>
-            )} */}
+            )}
           </nav>
         </div>
 
@@ -54,37 +54,23 @@ export function NavbarHeader({ items }: MainNavProps) {
           <div className="mr-4">
             <ThemeToggle />
           </div>
-
-          <div
-            className={"md:hidden"}
-            onClick={() => {
-              console.log("Hey")
-            }}
-          >
-            {isSidebarOpen ? <SidebarClose /> : <MenuIcon />}
-            {/* {isSidebarOpen ? (
-              <SidebarClose onClick={setIsSidebarOpen(true)} />
+          <div className={"md:hidden"}>
+            {isSidebarOpen ? (
+              <SidebarClose
+                onClick={() => {
+                  setIsSidebarOpen(!isSidebarOpen)
+                }}
+              />
             ) : (
-              <MenuIcon onClick={setIsSidebarOpen(false)} />
-            )} */}
+              <MenuIcon
+                onClick={() => {
+                  setIsSidebarOpen(!isSidebarOpen)
+                }}
+              />
+            )}
           </div>
         </div>
       </div>
     </header>
   )
 }
-
-// {
-//   isSidebarOpen ? (
-//     <SidebarClose onClick={setIsSidebarOpen(true)} />
-//   ) : (
-//     <MenuIcon />
-//   )
-// }
-// {
-//   isSidebarOpen ? (
-//     <SidebarClose onClick={store.setIsSidebarOpen(true)} />
-//   ) : (
-//     <MenuIcon onClick={store.setIsSidebarOpen(false)} />
-//   )
-// }
