@@ -53,6 +53,13 @@ export const invoiceRouter = router({
         subtotal: z.number(),
         tax: z.number().optional(),
         discount: z.number().optional(),
+        items: z.array(
+          z.object({
+            name: z.string(),
+            quantity: z.number(),
+            amount: z.number(),
+          })
+        ),
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -75,6 +82,11 @@ export const invoiceRouter = router({
           subtotal: input.subtotal,
           tax: input.tax,
           discount: input.discount,
+          items: {
+            createMany: {
+              data: input.items,
+            },
+          },
         },
       })
     }),

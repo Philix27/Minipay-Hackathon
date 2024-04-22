@@ -11,9 +11,7 @@ export default function PaymentLinks() {
       <div>
         <Pay
           invoiceId={"invoice"}
-          currentUserWalletAddress={
-            "0x7054b457f55dc0D47725bdeeB98eddE543eC448D"
-          }
+          amount={1}
         />
       </div>
     </div>

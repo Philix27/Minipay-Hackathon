@@ -4,9 +4,6 @@ import React from "react"
 import InvoicePreview from "@/(core)/invoice/new/preview"
 import { Button } from "@/comps"
 import { trpc } from "@/lib"
-import { useReadContract } from "wagmi"
-
-import { SmartContract } from "@/lib/chain/en"
 
 import { Pay } from "./payBtn"
 
@@ -44,7 +41,7 @@ export default function InvoicePay(props: { invoiceId: string }) {
         tax={invoice.tax!.toString()}
         discount={invoice.discount!.toString()}
       />
-      <Pay invoiceId={invoice.id} currentUserWalletAddress={""} />
+      <Pay invoiceId={invoice.id} amount={1} />
     </div>
   )
 }

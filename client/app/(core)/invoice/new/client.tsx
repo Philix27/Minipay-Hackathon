@@ -39,6 +39,7 @@ export default function NewInvoiceClient() {
       thanksMsg: form.getValues("thanksMsg"),
       total: 2,
       subtotal: 0,
+      items: []
     })
     toast("Invoice created")
   }
