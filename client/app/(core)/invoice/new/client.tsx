@@ -27,34 +27,38 @@ export default function NewInvoiceClient() {
   async function onSubmit() {
     console.log("Submit clicked")
 
-    const invoiceId = await t.mutateAsync({
-      ownerWalletAddress: "",
-      toBusinessName: form.getValues("toBusinessName"),
-      toEmail: form.getValues("toEmail"),
-      fromBusinessName: form.getValues("fromBusinessName"),
-      fromPhone: form.getValues("fromPhone"),
-      fromEmail: form.getValues("fromEmail"),
-      fromDate: form.getValues("fromDate"),
-      fromAddress: form.getValues("fromAddress"),
-      footerNote: form.getValues("footerNote"),
-      thanksMsg: form.getValues("thanksMsg"),
-      total: 2,
-      subtotal: 0,
-      // items: [
-      //   {
-      //     name: form.getValues("item1_name"),
-      //     amount: form.getValues("item1_amount"),
-      //     quantity: form.getValues("item1_quantity"),
-      //   },
-      //   {
-      //     name: form.getValues("item2_name"),
-      //     amount: form.getValues("item2_amount"),
-      //     quantity: form.getValues("item2_quantity"),
-      //   },
-      // ],
-    })
-    setInvId(invoiceId)
-    toast("Invoice created")
+    try {
+      const invoiceId = await t.mutateAsync({
+        ownerWalletAddress: "",
+        toBusinessName: form.getValues("toBusinessName"),
+        toEmail: form.getValues("toEmail"),
+        fromBusinessName: form.getValues("fromBusinessName"),
+        fromPhone: form.getValues("fromPhone"),
+        fromEmail: form.getValues("fromEmail"),
+        fromDate: form.getValues("fromDate"),
+        fromAddress: form.getValues("fromAddress"),
+        footerNote: form.getValues("footerNote"),
+        thanksMsg: form.getValues("thanksMsg"),
+        total: 2,
+        subtotal: 0,
+        // items: [
+        //   {
+        //     name: form.getValues("item1_name"),
+        //     amount: form.getValues("item1_amount"),
+        //     quantity: form.getValues("item1_quantity"),
+        //   },
+        //   {
+        //     name: form.getValues("item2_name"),
+        //     amount: form.getValues("item2_amount"),
+        //     quantity: form.getValues("item2_quantity"),
+        //   },
+        // ],
+      })
+      setInvId(invoiceId)
+      toast.success("Invoice created")
+    } catch (error) {
+      toast.error("Check your form and fill every")
+    }
   }
 
   return (
@@ -92,7 +96,7 @@ export default function NewInvoiceClient() {
             </Button>
 
             {showInvId && (
-              <div>
+              <div className="mt-2 px-4 py-2 bg-primary rounded-lg">
                 <TextH v="h5">Invoice ID: {showInvId}</TextH>
               </div>
             )}
