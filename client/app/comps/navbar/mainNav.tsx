@@ -28,7 +28,7 @@ export function NavbarHeader({ items }: MainNavProps) {
   }, [])
 
   return (
-    <header className="bg-primary sticky top-0 z-40 w-full border-b">
+    <header className="bg-primary sticky top-0 z-20 w-full border-b">
       <div className="container flex h-[60px] items-center justify-between">
         <div className="flex gap-6 md:gap-10 ">
           <Link href="/" className="flex items-center space-x-2">

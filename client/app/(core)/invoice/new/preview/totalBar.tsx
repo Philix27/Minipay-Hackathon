@@ -13,10 +13,10 @@ export function TotalBar(props: {
     >
       <div>
         <TextB>Subtotal: {props.subtotal}</TextB>
-        <TextB>Tax: {props.total}</TextB>
+        <TextB>Tax: {props.tax}</TextB>
         <TextB>Discount: {props.discount}</TextB>
       </div>
-      <TextH v="h5">Total Due: {props.total}</TextH>
+      <TextH v="h5">Total Due: ${props.total}</TextH>
     </div>
   )
 }

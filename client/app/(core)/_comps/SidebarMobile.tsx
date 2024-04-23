@@ -10,7 +10,7 @@ export function SidebarMobile(props: { className?: string }) {
   return (
     <div
       className={cn(
-        `w-screen z-10 md:z-0
+        `w-screen z-10
        bg-slate-950  bg-opacity-20
       border-secondary md:hidden fixed`,
         props.className

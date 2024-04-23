@@ -1,4 +1,3 @@
-import { MetaMaskInpageProvider } from "@metamask/providers"
 import { BrowserProvider, Contract, parseEther } from "ethers"
 
 import { contractAbi, contractAddress } from "./abi"
@@ -53,4 +52,26 @@ export class SmartContract {
       await tx.wait()
     } catch (error) {}
   }
+
+  // public async payInvoice2(
+  //   invoiceOwner: string,
+  //   selectedToken: "CELO" | "cUSD",
+  //   payAmount: number
+  // ) {
+  //   const contract = await this.getContract()
+  //   const payValue = parseEther(payAmount.toString())
+  //   const gasLimit = parseInt("600000")
+
+  //   if (selectedToken === "CELO") {
+  //     let tx = await contract.deposit(invoiceOwner, payValue, {
+  //       gasLimit,
+  //     })
+  //     let receipt = await tx.wait()
+  //   } else if (selectedToken === "cUSD") {
+  //     let tx = await contract!.deposit(this.cUsdTokenAddress, payValue, {
+  //       gasLimit,
+  //     })
+  //     let receipt = await tx.wait()
+  //   }
+  // }
 }

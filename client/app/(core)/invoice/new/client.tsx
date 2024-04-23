@@ -14,6 +14,7 @@ import PreviewComp from "./preview"
 
 export default function NewInvoiceClient() {
   const [isFormTab, setActiveTab] = useState<boolean>(true)
+  const [showInvId, setInvId] = useState<string>("")
   const t = trpc.invoice.create.useMutation()
 
   // ... // 1. Define your form.
@@ -23,10 +24,10 @@ export default function NewInvoiceClient() {
   })
 
   // 2. Define a submit handler.
-  function onSubmit() {
+  async function onSubmit() {
     console.log("Submit clicked")
 
-    t.mutateAsync({
+    const invoiceId = await t.mutateAsync({
       ownerWalletAddress: "",
       toBusinessName: form.getValues("toBusinessName"),
       toEmail: form.getValues("toEmail"),
@@ -39,8 +40,20 @@ export default function NewInvoiceClient() {
       thanksMsg: form.getValues("thanksMsg"),
       total: 2,
       subtotal: 0,
-      items: []
+      // items: [
+      //   {
+      //     name: form.getValues("item1_name"),
+      //     amount: form.getValues("item1_amount"),
+      //     quantity: form.getValues("item1_quantity"),
+      //   },
+      //   {
+      //     name: form.getValues("item2_name"),
+      //     amount: form.getValues("item2_amount"),
+      //     quantity: form.getValues("item2_quantity"),
+      //   },
+      // ],
     })
+    setInvId(invoiceId)
     toast("Invoice created")
   }
 
@@ -77,6 +90,12 @@ export default function NewInvoiceClient() {
             >
               Submit
             </Button>
+
+            {showInvId && (
+              <div>
+                <TextH v="h5">Invoice ID: {showInvId}</TextH>
+              </div>
+            )}
           </div>
         ) : (
           <PreviewComp
@@ -90,10 +109,23 @@ export default function NewInvoiceClient() {
             toBizName={form.getValues("toBusinessName") || ""}
             fromDate={form.getValues("fromDate")}
             bizName={form.getValues("fromBusinessName")}
-            total={"12"}
-            subtotal={"23.90"}
-            tax={"256%"}
-            discount={"278"}
+            item1Name={form.getValues("item1_name")}
+            item1Quantity={form.getValues("item1_quantity")}
+            item1Amount={form.getValues("item1_amount")}
+            item2Name={form.getValues("item2_name")}
+            item2Quantity={form.getValues("item2_quantity")}
+            item2Amount={form.getValues("item2_amount")}
+            total={(
+              +form.getValues("item1_amount") + +form.getValues("item2_amount")
+            ).toString()}
+            subtotal={"$".concat(
+              (
+                +form.getValues("item1_amount") +
+                +form.getValues("item2_amount")
+              ).toString()
+            )}
+            tax={"0%"}
+            discount={"0"}
           />
         )}
       </div>

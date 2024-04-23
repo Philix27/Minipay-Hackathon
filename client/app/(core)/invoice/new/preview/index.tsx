@@ -1,7 +1,5 @@
 import React from "react"
-import { UseFormReturn } from "react-hook-form"
 
-import { IFormSchema } from "../formSchema"
 import { AddressBar } from "./addressBar"
 import { FooterBar } from "./footerBar"
 import { ItemsBar } from "./itemsBar"
@@ -23,9 +21,15 @@ export default function InvoicePreview(props: {
   subtotal: string
   tax: string
   discount: string
+  item1Name: string
+  item1Quantity: number
+  item1Amount: number
+  item2Name: string
+  item2Quantity: number
+  item2Amount: number
 }) {
   return (
-    <div className={"flex flex-col items-center justify-center my-5"}>
+    <div className={"flex flex-col items-center justify-center my-5 w-full"}>
       <div
         className={`
           w-[90%]
@@ -44,7 +48,20 @@ export default function InvoicePreview(props: {
           toWebsite={props.toWebsite}
           toBizName={props.toBizName}
         />
-        <ItemsBar />
+        <ItemsBar
+          data={[
+            {
+              name: props.item1Name,
+              quantity: props.item1Quantity,
+              amount: props.item1Amount,
+            },
+            {
+              name: props.item2Name,
+              quantity: props.item2Quantity,
+              amount: props.item2Amount,
+            },
+          ]}
+        />
         <TotalBar
           total={props.total}
           subtotal={props.subtotal}

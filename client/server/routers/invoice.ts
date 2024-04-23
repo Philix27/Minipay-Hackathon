@@ -2,16 +2,19 @@ import { publicProcedure, router } from "@/server"
 import { z } from "zod"
 
 export const invoiceRouter = router({
-  get_all: publicProcedure
+  getAll: publicProcedure.input(z.object({})).query(async ({ ctx, input }) => {
+    return await ctx.prisma.invoice.findMany()
+  }),
+  getById: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(async ({ ctx, input }) => {
-      return await ctx.prisma.invoice.findMany({
+      return await ctx.prisma.invoice.findFirst({
         where: {
-          user_id: input.id,
+          id: input.id,
         },
       })
     }),
-  get_one: publicProcedure
+  getByUserId: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(async ({ ctx, input }) => {
       return await ctx.prisma.invoice.findFirst({
@@ -53,17 +56,17 @@ export const invoiceRouter = router({
         subtotal: z.number(),
         tax: z.number().optional(),
         discount: z.number().optional(),
-        items: z.array(
-          z.object({
-            name: z.string(),
-            quantity: z.number(),
-            amount: z.number(),
-          })
-        ),
+        // items: z.array(
+        //   z.object({
+        //     name: z.string(),
+        //     quantity: z.number(),
+        //     amount: z.number(),
+        //   })
+        // ),
       })
     )
     .mutation(async ({ ctx, input }) => {
-      return await ctx.prisma.invoice.create({
+      const inv = await ctx.prisma.invoice.create({
         data: {
           ownerWalletAddress: input.ownerWalletAddress!,
           fromAddress: input.fromAddress!,
@@ -84,10 +87,23 @@ export const invoiceRouter = router({
           discount: input.discount,
           items: {
             createMany: {
-              data: input.items,
+              data: [
+                {
+                  name: "Milk",
+                  quantity: 1,
+                  amount: 1,
+                },
+                {
+                  name: "Sugar",
+                  quantity: 1,
+                  amount: 1,
+                },
+              ],
             },
           },
         },
       })
+
+      return inv.id
     }),
 })
